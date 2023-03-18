@@ -57,10 +57,7 @@ const props = defineProps({
         :key="product.title"
       >
         <div class="flex flex-col">
-          <router-link
-            :to="`/prod/${product.id}`"
-            @click.prevent="emitProdId(product.id)"
-          >
+          <router-link :to="`/prod/${product.id}`">
             <div class="w-full overflow-hidden relative img-cover">
               <img
                 :src="product.imageUrl"
