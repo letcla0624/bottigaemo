@@ -43,14 +43,14 @@ onMounted(() => {
 
 <template>
   <nav>
-    <ol class="flex items-center flex-nowrap mb-10">
+    <ul class="flex items-center flex-nowrap mb-10">
       <li
         v-for="(item, idx) in breadcrumbList.arr"
         :key="`${item}_${idx}`"
         class="cursor-pointer flex items-center"
         @click="routeTo(idx)"
       >
-        <span class="hoverBar hover:text-primary">
+        <span class="hoverBar hover:text-primary whitespace-nowrap">
           <template v-if="localLang === 'zh_TW'">
             {{ item.name }}
           </template>
@@ -61,14 +61,16 @@ onMounted(() => {
         <ChevronRightIcon class="w-8 h-8 inline stroke-2 px-2 opacity-50" />
       </li>
       <li v-if="props.prodTitle" class="text-black/50">
-        <template v-if="localLang === 'zh_TW'">
-          <span class="">{{ props.prodTitle }}</span>
-        </template>
-        <template v-else-if="localLang === 'en'">
-          <span class="line-clamp-1 uppercase">{{ props.prodEnTitle }}</span>
-        </template>
+        <span class="line-clamp-1 uppercase">
+          <template v-if="localLang === 'zh_TW'">
+            {{ props.prodTitle }}
+          </template>
+          <template v-else-if="localLang === 'en'">
+            {{ props.prodEnTitle }}
+          </template>
+        </span>
       </li>
-    </ol>
+    </ul>
   </nav>
 </template>
 
