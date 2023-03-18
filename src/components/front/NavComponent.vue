@@ -119,7 +119,7 @@ const openDelModal = (cartItem) => {
   >
     <button
       type="button"
-      class="nav-toggle w-[82px] sm:w-[136px] text-left"
+      class="nav-toggle w-[82px] sm:w-[136px] text-left flex"
       :class="{ active: isOpenMenu }"
       @click.prevent="openMenu"
       :disabled="menuDisabled"
@@ -223,7 +223,7 @@ const openDelModal = (cartItem) => {
       </template>
       <div
         v-if="cartsTotal === 0"
-        class="h-full flex flex-col justify-center items-center text-black/40"
+        class="h-full flex flex-col justify-center items-center text-center text-black/40"
       >
         <ShoppingBagIcon class="w-7 h-7" />
         <h3 class="text-base pt-3 pb-5">
@@ -236,7 +236,7 @@ const openDelModal = (cartItem) => {
         </h3>
         <router-link
           to="/products"
-          class="btn btn-dark w-1/3"
+          class="btn btn-dark md:w-1/3"
           @click="active = false"
         >
           <template v-if="localLang === 'zh_TW'"> 前往購物 </template>
@@ -394,7 +394,7 @@ const openDelModal = (cartItem) => {
     .nav-navIcon-line {
       background-color: currentColor;
       width: 100%;
-      height: 1.6px;
+      height: 1.5px;
       margin-bottom: 8px;
       transform-origin: center;
       transition: all 0.15s ease-out;

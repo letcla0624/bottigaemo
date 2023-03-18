@@ -100,6 +100,7 @@ const items = reactive(data);
         autoplay
         loop
         muted
+        playsinline
         controlslist="nodownload"
         :poster="item.m_posterURL"
       >
@@ -110,6 +111,7 @@ const items = reactive(data);
         autoplay
         loop
         muted
+        playsinline
         controlslist="nodownload"
         :poster="item.posterURL"
       >

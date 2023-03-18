@@ -124,6 +124,7 @@ onMounted(() => {
             autoplay
             loop
             muted
+            playsinline
             controlslist="nodownload"
             poster="https://storage.googleapis.com/vue-course-api.appspot.com/letcla-fashion/1678027705055.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=fvX5QcNMyUffiFabMNLAh77FbUGpoKYZ5UKdKfyRwrT%2FYYB%2B%2B%2FGOvH%2F6a%2FZ2Gl%2BAPnuCUw8HqAHh5moDwhnXzC9xobTKa4MjRaUb0sjX8Rg2Rx0Lp7wkfgVayQgF0ugVuJS%2BIY7Cu24tZ1gxExchHCEer67M2yqDa6Tl%2Beozbk9kSeXi76Jl%2FXZlJSWGBcJuETs%2Behn7vPzF9z%2FHCaSmjx1IJQvF4MMxWqfeNeCAIXLeITmYRqqojf8YAQTCFSjvLQGVYFoPlUrDejOwj2dihtsh5HqUAgrnneRgiaUSAMMewRnbS2WUoaHcNGXRHrjLVn9W6ZCIvFFOnlTIXe0%2BrQ%3D%3D"
           >
@@ -134,6 +135,7 @@ onMounted(() => {
             autoplay
             loop
             muted
+            playsinline
             controlslist="nodownload"
             poster="https://storage.googleapis.com/vue-course-api.appspot.com/letcla-fashion/1678027725410.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=bEEl5ToZH8d1YmyGCMSycDKBvt9x6R3J9C0yCzsVEA6H8HPyhaGmpW7MdQNkY8l1EVaX1wwK%2FdjUzd3JczS2TK3eCTTqAwgoWaz2zRKiwi2YZzNEq7uqjqnOf%2FobYsjyE6e3Xe%2BA5TWjqZzNFyTbalsISY42yDgKI9dOQRuMaawmG2ipus78wsHl1lciC%2Frxt19I5Pu6t1h0lOA6mztbNgl7ljw8gZjpq6qsbdkDsBULMmU4MZHad%2F1fTbiGpS4g9Z4gVyq8LProBc5N1%2Fv5f%2BoXdQw9kHFTjmoYeeJ%2F3742C1IvOK3Z9BDmdnBJHkSmRjd94NpHzXTv6xHC%2BjAYJQ%3D%3D"
             class="w-full"
