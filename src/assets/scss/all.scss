@@ -1,0 +1,27 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;1,6..96,400;1,6..96,700&display=swap');
+@import './base/colors';
+
+@layer base {
+  html,
+  body {
+    position: relative;
+    height: 100%;
+  }
+}
+
+@layer components {
+  .btn{
+    @apply text-center border flex justify-center items-center px-4 py-3 transition-all duration-300;
+  }
+  .btn-dark {
+    @apply text-white bg-primary-dark border-transparent hover:bg-black/80;
+  }
+  .btn-outline-dark {
+    @apply border border-primary-dark  hover:text-white hover:bg-primary-dark;
+  }
+}
+
