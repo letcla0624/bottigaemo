@@ -94,12 +94,6 @@ onMounted(() => {
   getCarts();
 });
 
-watch(windowScrollTop, (newVal, oldVal) => {
-  newVal < oldVal
-    ? navBar.value.classList.remove("-translate-y-full")
-    : navBar.value.classList.add("-translate-y-full");
-});
-
 const showModal = ref(false);
 const tempCartItem = reactive({ obj: {} });
 const closeModal = () => {

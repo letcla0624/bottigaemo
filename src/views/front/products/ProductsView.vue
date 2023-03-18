@@ -241,7 +241,7 @@ onMounted(() => {
             </router-link>
           </div>
           <div
-            class="col-start-1 col-end-3 row-start-7 row-end-9 md:col-start-2 md:col-end-4 md:row-start-1 md:row-end-3 lg:col-start-3 lg:col-end-5 2xl:col-start-4 2xl:col-end-6 lg:row-start-1 lg:row-end-3 overflow-hidden bigPic"
+            class="col-start-1 col-end-3 row-start-7 row-end-9 md:col-start-2 md:col-end-4 md:row-start-1 md:row-end-3 lg:col-start-3 lg:col-end-5 2xl:col-start-4 2xl:col-end-6 lg:row-start-1 lg:row-end-3 overflow-hidden bigPic hidden md:block"
             ref="bigPic1"
           >
             <img
@@ -251,7 +251,7 @@ onMounted(() => {
             />
           </div>
           <div
-            class="col-start-1 col-end-3 row-start-8 row-end-10 md:col-start-1 md:col-end-3 md:row-start-5 md:row-end-7 overflow-hidden bigPic"
+            class="col-start-1 col-end-3 row-start-8 row-end-10 md:col-start-1 md:col-end-3 md:row-start-5 md:row-end-7 overflow-hidden bigPic hidden md:block"
             ref="bigPic2"
           >
             <img

@@ -47,10 +47,10 @@ onMounted(() => {
     <div v-else class="container">
       <div
         v-if="tempFavoriteProds.arr.length === 0"
-        class="h-screen flex flex-col justify-center items-center"
+        class="h-screen flex flex-col justify-center items-center text-center"
       >
         <ClipboardDocumentIcon class="w-10 h-10 stroke-1" />
-        <h2 class="text-2xl tracking-wide mt-3 mb-10">
+        <h2 class="text-base md:text-2xl tracking-wide mt-3 mb-10">
           {{ $t("favoriteItems") }}
         </h2>
         <router-link to="products" class="btn btn-dark">
