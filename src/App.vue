@@ -37,6 +37,8 @@ onMounted(() => {
     window.event.returnValue = false;
   };
 
+  localStorage.setItem("language", "zh_TW");
+
   getDate();
   AOS.init();
 });

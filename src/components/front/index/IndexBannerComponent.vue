@@ -37,8 +37,8 @@ const data = [
       "https://storage.googleapis.com/vue-course-api.appspot.com/letcla-hexschool/1674548350348.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=CPjzUmanywZsag4qm9tZTQD2gtKi4RlOqATEJL9Q9QCHEbANdBBDxwj%2Bd3J0zNsB1HqFP72aRFsgEBw0WDNHvW3Xf3Il3fbHl3V07OFRJnE1%2BTeU49FR0WxnHR2smt%2B07H9qusw0%2FsQgwPijURDxJ5UzPHIRvSNpmkwGycO3LX0lM1xmPTevVeZil8xD%2FIcKde0%2F4B%2Bp3uXM6zcduABcNIRL%2BGki8FliY9MW0rP8f0aoDRY3%2B5Rbo5MU8rvQqAja9Ot2znbORGJKdrNgciksyFcq0LFKJ8sQoviGiY3806UG%2FgQbyWx389oqpXl5KbCIUNhCZxQWBD%2FFkgXQfrByeg%3D%3D",
     posterURL:
       "https://storage.googleapis.com/vue-course-api.appspot.com/letcla-hexschool/1674548314314.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=hrhhmDF6puXANB5cqwvit1LKlxx5grsdL4nHAw%2B9upJGiYDwuQnuuBeSmc%2Bc8F7azVE5E4CGjN%2FIsAXsH0TOTVfpiba2QOlgbJ55R0k00%2FyPrm8RDpQBu08hOMgev5iDJ8uUuUNKHGQ6h%2FKIdKzSa1md2WNHXjaYPd6pR5PEKRMN6c1Kuurk6IRBUQmc2DnP7bNilFZUUVjYoDESLAHYT41xELemcWOI%2FvQGc%2BXemGUHaI17i7zw5s0OGBOKLlYaS4v%2BF3mzLuyP3sd4IoNcg%2FHCDfMc6hSYjeSw53eRgQ12f2BKJCaHyYk7N8hFbkcQvXd2hh2YobUN1zgE10%2FRvQ%3D%3D",
-    m_videoURL: "/video/index/1-phone.mp4",
-    videoURL: "/video/index/1.mp4",
+    m_videoURL: "/bottigaemo/video/index/1-phone.mp4",
+    videoURL: "/bottigaemo/video/index/1.mp4",
     link: "-NOtkC4nCN2GSzVic6pm",
   },
   {
@@ -49,8 +49,8 @@ const data = [
       "https://storage.googleapis.com/vue-course-api.appspot.com/letcla-hexschool/1674548463775.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=OoR1WT1mil7Bv1Lbp7%2FBNHUKehg9TD1o5Rfa5bjwO4snPjP63Rz%2B8nWmHRbhzUuAvQ5JXw4rx0zYu%2Bfu7emsKZ0H5C7kbDKAjLXOQGans6cQX97SMhyfW%2BDtefg8fCgjQQaGnvKDCaBSvJK6MyEsbWyrX9VeFZc2dyawAP9RfujJILDVb6iFiZkNeJklowbkO4HVz7NwvNUNsSemsJRccEfnQOv0Mdpd%2BlL4qEGbiBFeOIo7icphEQOq4adq5s6fiK6oGqxIZn6U3JJPSPhL%2B3fvEJYVoi7lug8awKsla%2BY%2FaJ9AkPNfBy0nUPUDYIq8CBgFO3CLTtNJl2a5QI01zw%3D%3D",
     posterURL:
       "https://storage.googleapis.com/vue-course-api.appspot.com/letcla-hexschool/1674548441179.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=OZMxqumfjexnAboicgwXm0g89vBu8O4YrT2DbcTTosVC3kdtNKY0EZYenJ1grvF8JaGndLQ97qw%2FH1kTGOzWGkh4JdI44IUGP7GCaWHlyUABrRy5PHkwZkE9Su4byJclXKXObViHDTxpxBIX8QIWJZ54qR5i1spj6%2BwBAL4M4pXdku0VrNQnXZldPo4UQLmzlCmWK7JJnz9%2F%2FWlvB4paG0Rwq4zxyGlyCm9DKyuMAWXyWBvLfSpbTk9PPlxBK3XmhflmCa7VoyAtOiTbV%2F6BDGu%2BkjPD%2Fcv9Ed%2FgvF9RmboQbnHB5upM%2BgxzS1oGIQsgN%2BT3LsFBxqnbH8No8yAhYw%3D%3D",
-    m_videoURL: "/video/index/2-phone.mp4",
-    videoURL: "/video/index/2.mp4",
+    m_videoURL: "/bottigaemo/video/index/2-phone.mp4",
+    videoURL: "/bottigaemo/video/index/2.mp4",
     link: "-NOrgOp1wQVl5_DcyQbX",
   },
 ];
