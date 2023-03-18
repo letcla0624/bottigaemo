@@ -1,13 +1,14 @@
 <script setup>
 import { onMounted, inject, watch } from "vue";
 import { PlusIcon } from "@heroicons/vue/24/outline";
+import LoadingComponent from "@/components/LoadingComponent.vue";
 import { storeToRefs } from "pinia";
 import { useFrontArticlesStore } from "@/stores/frontArticlesStore.js";
 import { useChangeLangStore } from "@/stores/changeLangStore.js";
 
 // pinia Articles
 const frontArticlesStore = useFrontArticlesStore();
-const { articles } = storeToRefs(frontArticlesStore);
+const { articles, isLoading } = storeToRefs(frontArticlesStore);
 const { getArticles } = frontArticlesStore;
 
 // pinia language
@@ -33,7 +34,8 @@ onMounted(() => {
 <template>
   <div>
     <div class="pt-[72px]">
-      <div class="bg-primary-dark text-white min-h-screen">
+      <LoadingComponent v-if="isLoading" />
+      <div v-else class="bg-primary-dark text-white min-h-screen">
         <div class="tracking-wider text-center py-20 md:py-36">
           <h2 class="text-xl md:text-3xl font-bold mb-1">
             <template v-if="localLang === 'zh_TW'"> 品牌動向 </template>
