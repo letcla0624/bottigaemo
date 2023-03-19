@@ -3,7 +3,7 @@ import { ref, reactive, onMounted } from "vue";
 import { useRoute } from "vue-router";
 import axios from "axios";
 import LoadingComponent from "@/components/LoadingComponent.vue";
-// import { toThousands } from "@/composable/toThousands.js";
+import { toThousands } from "@/composable/toThousands.js";
 import HeartFillComponent from "@/components/svgPath/HeartFillComponent.vue";
 import SwiperOtherProdsComponent from "@/components/front/prod/SwiperOtherProdsComponent.vue";
 import BreadComponent from "@/components/front/BreadComponent.vue";
@@ -169,12 +169,10 @@ onMounted(() => {
               <div class="flex justify-between items-center">
                 <p class="text-lg my-3">
                   <template v-if="localLang === 'zh_TW'">
-                    <!-- NT$ {{ toThousands(product.obj.price) }} -->
-                    NT$ {{ product.obj.price }}
+                    NT$ {{ toThousands(product.obj.price) }}
                   </template>
                   <template v-else-if="localLang === 'en'">
-                    <!-- $ {{ toThousands(product.obj.enPrice) }} -->
-                    $ {{ product.obj.enPrice }}
+                    $ {{ toThousands(product.obj.enPrice) }}
                   </template>
                 </p>
                 <button type="button" @click="toggleFavorite(product.obj.id)">

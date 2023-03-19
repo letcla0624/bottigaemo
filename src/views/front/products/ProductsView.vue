@@ -3,7 +3,7 @@ import { ref, reactive, inject, onMounted } from "vue";
 import LoadingComponent from "@/components/LoadingComponent.vue";
 import HeartFillComponent from "@/components/svgPath/HeartFillComponent.vue";
 import NoSearchComponent from "@/components/NoSearchComponent.vue";
-// import { toThousands } from "@/composable/toThousands.js";
+import { toThousands } from "@/composable/toThousands.js";
 
 import {
   AdjustmentsHorizontalIcon,
@@ -230,12 +230,10 @@ onMounted(() => {
                   </h2>
                   <p class="md:text-right">
                     <template v-if="localLang === 'zh_TW'">
-                      NT$ {{ product.price }}
-                      <!-- NT$ {{ toThousands(product.price) }} -->
+                      NT$ {{ toThousands(product.price) }}
                     </template>
                     <template v-else-if="localLang === 'en'">
-                      <!-- $ {{ toThousands(product.enPrice) }} -->
-                      $ {{ product.enPrice }}
+                      $ {{ toThousands(product.enPrice) }}
                     </template>
                   </p>
                 </div>
