@@ -1,4 +1,5 @@
 <script setup>
+import { inject } from "vue";
 import HeartFillComponent from "@/components/svgPath/HeartFillComponent.vue";
 import { toThousands } from "@/composable/toThousands.js";
 import { PlusIcon, HeartIcon } from "@heroicons/vue/24/outline";
@@ -21,6 +22,7 @@ const { toggleFavorite } = frontFavoriteStore;
 const changeLangStore = useChangeLangStore();
 const { localLang } = storeToRefs(changeLangStore);
 
+const detectWidth = inject("detectWidth");
 const modules = [FreeMode];
 
 const props = defineProps({
@@ -35,7 +37,7 @@ const props = defineProps({
     <swiper
       :slidesPerView="1.2"
       :spaceBetween="8"
-      :freeMode="true"
+      :freeMode="detectWidth >= 640 ? true : false"
       :breakpoints="{
         '640': {
           slidesPerView: 2.2,

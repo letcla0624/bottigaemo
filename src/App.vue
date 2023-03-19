@@ -53,6 +53,7 @@ onMounted(() => {
 <style lang="scss">
 #app {
   height: 100%;
+  -webkit-overflow-scrolling: touch;
 }
 
 .fadeIn-enter-active,
@@ -111,7 +112,19 @@ onMounted(() => {
 // 難纏的藍色外框
 :focus,
 :focus-visible {
-  outline: transparent auto 0px !important;
+  @media screen and (min-width: 640px) {
+    outline: transparent auto 0px !important;
+  }
+}
+
+// swiper 手機很卡
+.swiper-slide {
+  transition: transform 0.3s ease-out;
+}
+
+.swiper-container {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
 
 .swiper-pagination-bullet {

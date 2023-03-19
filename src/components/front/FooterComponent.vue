@@ -118,8 +118,9 @@ onMounted(() => {
               v-model="language"
               @change="changeLang"
             >
-              <option value="zh_TW" selected>繁中</option>
-              <option value="en">ENG</option>
+              <option disabled>{{ $t("selectLanguage") }}</option>
+              <option value="zh_TW" selected>繁體中文</option>
+              <option value="en">English</option>
             </select>
           </div>
         </div>

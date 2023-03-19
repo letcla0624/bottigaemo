@@ -43,6 +43,7 @@ onMounted(() => {
         },
       }"
       :modules="modules"
+      :loop="true"
       class="py-10"
     >
       <swiper-slide

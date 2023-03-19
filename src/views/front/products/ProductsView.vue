@@ -54,18 +54,9 @@ let tempProducts = reactive({ arr: [] });
 const filters = reactive({ arr: [] });
 
 const filterCategory = async () => {
-  const bigPics = document.querySelectorAll(".bigPic");
   tempProducts = { ...products.value };
 
-  if (filters.arr.length === 0) {
-    bigPics.forEach((item) => {
-      item.classList.remove("hidden");
-    });
-  } else {
-    bigPics.forEach((item) => {
-      item.classList.add("hidden");
-    });
-
+  if (filters.arr.length !== 0) {
     return (tempProducts.arr = tempProducts.arr.filter((item) =>
       filters.arr.includes(item.category)
     ));
@@ -144,7 +135,7 @@ onMounted(() => {
           </video>
         </div>
         <div
-          class="flex justify-between items-center p-5 border-y mb-1 sticky top-0 bg-white z-10"
+          class="flex justify-between items-center p-5 border-y mb-1 sticky top-16 md:top-[68px] bg-white z-10"
         >
           <button
             type="button"
@@ -219,7 +210,9 @@ onMounted(() => {
                 </div>
               </div>
               <div class="md:bg-neutral-100 p-2 md:py-4">
-                <div class="flex flex-col md:flex-row justify-between">
+                <div
+                  class="flex flex-col md:flex-row justify-between items-center"
+                >
                   <h2 class="md:w-1/2 xl:w-2/3 uppercase">
                     <template v-if="localLang === 'zh_TW'">
                       <span class="line-clamp-1">{{ product.title }}</span>

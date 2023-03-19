@@ -44,7 +44,7 @@ onMounted(() => {
 <template>
   <div class="">
     <LoadingComponent v-if="isLoading" />
-    <div v-else class="container">
+    <div v-else class="container px-2">
       <div
         v-if="tempFavoriteProds.arr.length === 0"
         class="h-screen flex flex-col justify-center items-center text-center"
@@ -108,7 +108,9 @@ onMounted(() => {
                 </n-tooltip>
               </div>
               <div class="md:bg-neutral-100 p-2 md:py-4">
-                <div class="flex flex-col md:flex-row justify-between">
+                <div
+                  class="flex flex-col md:flex-row justify-between items-center"
+                >
                   <h2 class="line-clamp-1 uppercase">
                     <template v-if="localLang === 'zh_TW'">
                       {{ product.title }}
@@ -117,7 +119,14 @@ onMounted(() => {
                       {{ product.enTitle }}
                     </template>
                   </h2>
-                  <p class="">NT$ {{ toThousands(product.price) }}</p>
+                  <p class="">
+                    <template v-if="localLang === 'zh_TW'">
+                      NT$ {{ toThousands(product.price) }}
+                    </template>
+                    <template v-if="localLang === 'en'">
+                      $ {{ toThousands(product.enPrice) }}
+                    </template>
+                  </p>
                 </div>
               </div>
             </router-link>

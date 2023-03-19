@@ -1,5 +1,5 @@
 <script setup>
-import { ref, reactive, onMounted } from "vue";
+import { ref, reactive, onMounted, inject } from "vue";
 import { useRoute } from "vue-router";
 import axios from "axios";
 import LoadingComponent from "@/components/LoadingComponent.vue";
@@ -40,6 +40,7 @@ const { toggleFavorite } = frontFavoriteStore;
 const changeLangStore = useChangeLangStore();
 const { localLang } = storeToRefs(changeLangStore);
 
+const detectWidth = inject("detectWidth");
 const modules = [Mousewheel, FreeMode];
 
 const showModal = ref(false);
@@ -124,7 +125,7 @@ onMounted(() => {
             },
           }"
           :mousewheel="true"
-          :freeMode="true"
+          :freeMode="detectWidth >= 640 ? true : false"
           :modules="modules"
           class="lg:w-7/12 lg:mt-20 4xl:h-[80vh]"
         >
@@ -262,7 +263,10 @@ onMounted(() => {
                 {{ $t("notice") }}
               </p>
               <button
-                v-if="product.obj.setSize"
+                v-if="
+                  product.obj.setSize &&
+                  route.params.id !== '-NOtotMZnrQ7orIGBbWu'
+                "
                 type="button"
                 class="flex items-center mt-4 hoverBar hover:text-primary"
                 preset="card"

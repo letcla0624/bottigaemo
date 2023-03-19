@@ -282,11 +282,7 @@ const openDelModal = (cartItem) => {
                   {{ $t("delete") }}
                 </n-tooltip>
               </div>
-              <DeleteModal
-                :del-item="tempCartItem"
-                :show-modal="showModal"
-                @close-modal="closeModal"
-              />
+
               <div class="flex justify-between items-center w-full">
                 <select
                   class="focus:border-primary-dark focus:ring-0 w-1/3 min-w-[72px] py-1"
@@ -341,6 +337,12 @@ const openDelModal = (cartItem) => {
       </template>
     </n-drawer-content>
   </n-drawer>
+
+  <DeleteModal
+    :del-item="tempCartItem"
+    :show-modal="showModal"
+    @close-modal="closeModal"
+  />
 
   <AnimateOverlayComponent :animation="animation" @is-open="changeMenu" />
 </template>

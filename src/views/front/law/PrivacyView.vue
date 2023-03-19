@@ -14,7 +14,7 @@ const { localLang } = storeToRefs(changeLangStore);
 
 <template>
   <div class="pt-[72px]">
-    <div class="md:py-10">
+    <div class="md:pb-10">
       <n-tabs
         default-value="privacy"
         justify-content="space-evenly"
@@ -58,11 +58,16 @@ const { localLang } = storeToRefs(changeLangStore);
 }
 .n-tabs.n-tabs--flex .n-tabs-nav {
   position: sticky;
-  top: 0;
+  top: 64px;
   background-color: #fff;
   z-index: 2;
+  @media screen and (min-width: 640px) {
+    top: 68px;
+  }
+
   .n-tabs-wrapper {
     padding: 0.75rem 0;
   }
 }
 </style>
+top-16 md:top-[68px]

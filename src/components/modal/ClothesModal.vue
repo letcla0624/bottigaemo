@@ -32,8 +32,7 @@ const props = defineProps({
       :title="localLang === 'zh_TW' ? '尺碼指南' : 'SIZE GUIDE'"
       size="huge"
       :bordered="false"
-      style="max-width: 1000px"
-      class="text-center min-w-[500px]"
+      class="text-center max-w-5xl min-w-min overflow-scroll"
     >
       <b class="text-center">{{ $t("sizeSubtitle") }}</b>
       <table
