@@ -203,6 +203,7 @@ const openDelModal = (cartItem) => {
     v-model:show="active"
     :placement="placement"
     :width="detectWidth < 502 ? `100%` : 502"
+    :z-index="2010"
     resizable
   >
     <n-drawer-content closable>

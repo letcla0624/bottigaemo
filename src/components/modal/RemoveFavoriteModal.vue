@@ -49,7 +49,7 @@ const cancelCallback = () => {
       :on-close="cancelCallback"
       :on-mask-click="cancelCallback"
       transform-origin="center"
-      z-index="2050"
+      :z-index="2050"
       class="rounded-none"
     >
       <template #header>

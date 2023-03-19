@@ -46,6 +46,7 @@ const cancelCallback = () => {
       preset="dialog"
       :on-close="cancelCallback"
       :on-mask-click="cancelCallback"
+      :z-index="2050"
       transform-origin="center"
       class="rounded-none"
     >
