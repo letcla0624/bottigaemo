@@ -33,11 +33,11 @@ function animateMarquee() {
 const isLoading = ref(true);
 
 onMounted(() => {
-  animateMarquee();
-
   setTimeout(() => {
     isLoading.value = false;
   }, 500);
+
+  animateMarquee();
 });
 </script>
 
@@ -161,14 +161,14 @@ onMounted(() => {
           />
         </div>
       </div>
-      <div class="overflow-hidden">
-        <p
-          ref="marqueeRef"
-          class="marquee text-8xl md:text-9xl whitespace-nowrap min-w-full uppercase font-bodoni font-bold text-transparent opacity-10"
-        >
-          {{ message }}
-        </p>
-      </div>
+    </div>
+    <div class="overflow-hidden">
+      <p
+        ref="marqueeRef"
+        class="marquee text-8xl md:text-9xl whitespace-nowrap min-w-full uppercase font-bodoni font-bold text-transparent opacity-10"
+      >
+        {{ message }}
+      </p>
     </div>
   </div>
 </template>
