@@ -3,7 +3,7 @@ import { RouterLink, useRoute } from "vue-router";
 import { inject, ref, reactive, watch, onMounted } from "vue";
 import { gsap } from "gsap";
 import { NBadge, NDrawer, NDrawerContent, NTooltip } from "naive-ui";
-import { toThousands } from "@/composable/toThousands.js";
+// import { toThousands } from "@/composable/toThousands.js";
 
 import HeartFillComponent from "@/components/svgPath/HeartFillComponent.vue";
 import AnimateOverlayComponent from "@/components/svgPath/AnimateOverlayComponent.vue";
@@ -304,10 +304,12 @@ const openDelModal = (cartItem) => {
                 </select>
                 <p>
                   <template v-if="localLang === 'zh_TW'">
-                    NT$ {{ toThousands(cartItem.total) }}
+                    <!-- NT$ {{ toThousands(cartItem.total) }} -->
+                    NT$ {{ cartItem.total }}
                   </template>
                   <template v-else-if="localLang === 'en'">
-                    $ {{ toThousands(cartItem.item_enTotal) }}
+                    <!-- $ {{ toThousands(cartItem.item_enTotal) }} -->
+                    $ {{ cartItem.item_enTotal }}
                   </template>
                 </p>
               </div>
@@ -322,10 +324,12 @@ const openDelModal = (cartItem) => {
         >
           <strong class="text-xl">
             <template v-if="localLang === 'zh_TW'">
-              NT$ {{ toThousands(cart.arr.final_total) }}
+              <!-- NT$ {{ toThousands(cart.arr.final_total) }} -->
+              NT$ {{ cart.arr.final_total }}
             </template>
             <template v-else-if="localLang === 'en'">
-              $ {{ toThousands(final_enTotal) }}
+              <!-- $ {{ toThousands(final_enTotal) }} -->
+              $ {{ final_enTotal }}
             </template>
           </strong>
           <button
