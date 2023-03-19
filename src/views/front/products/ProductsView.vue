@@ -50,12 +50,24 @@ const activate = (place) => {
   placement.value = place;
 };
 
-let tempProducts = reactive({ arr: [] });
+const tempProducts = reactive({ arr: [] });
 const filters = reactive({ arr: [] });
+const sortSelect = ref(null);
+
+const sortPrice = () => {
+  if (sortSelect.value === "normal") {
+    getProducts();
+    filters.arr = [];
+  } else if (sortSelect.value === "heightToLow") {
+    return products.arr.sort((a, b) => b.price - a.price);
+  } else if (sortSelect.value === "lowToHeight") {
+    return products.arr.sort((a, b) => a.price - b.price);
+  }
+};
 
 const filterCategory = async () => {
   const bigPics = document.querySelectorAll(".bigPic");
-  tempProducts = { ...products.value };
+  // tempProducts = { ...products.value };
 
   if (filters.arr.length === 0) {
     bigPics.forEach((item) => {
@@ -66,19 +78,21 @@ const filterCategory = async () => {
       item.classList.add("hidden");
     });
 
-    return (tempProducts.arr = tempProducts.arr.filter((item) =>
+    return (products.arr = products.arr.filter((item) =>
       filters.arr.includes(item.category)
     ));
   }
 };
 
-const init = () => {
-  getProducts();
-  tempProducts = products.value;
-};
+// const init = () => {
+//   getProducts();
+//   // tempProducts = products.value;
+// };
 
 onMounted(() => {
-  init();
+  getProducts();
+  console.log(products.value);
+  console.log(tempProducts);
 });
 </script>
 
@@ -157,16 +171,28 @@ onMounted(() => {
           <div class="flex items-center">
             <p class="text-black/50 mx-3 hidden sm:block">
               <template v-if="localLang === 'zh_TW'">
-                共 {{ tempProducts.arr.length }} 件商品
+                共 {{ products.arr.length }} 件商品
               </template>
               <template v-else-if="localLang === 'en'">
-                Total {{ tempProducts.arr.length }} products
+                Total {{ products.arr.length }} products
               </template>
             </p>
+            <div class="border-l border-black/40 pl-3">
+              <select
+                class="form-select text-sm border-0 py-0 focus:ring-0"
+                v-model="sortSelect"
+                @change="sortPrice()"
+              >
+                <option disabled>排序方式</option>
+                <option value="normal" selected>全部商品</option>
+                <option value="heightToLow">價格：由高至低</option>
+                <option value="lowToHeight">價格：由低至高</option>
+              </select>
+            </div>
           </div>
         </div>
         <div
-          v-if="tempProducts.arr.length === 0"
+          v-if="products.arr.length === 0"
           class="flex flex-col justify-center items-center"
         >
           <NoSearchComponent />
@@ -175,7 +201,7 @@ onMounted(() => {
           class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-2 m-2"
         >
           <div
-            v-for="product in tempProducts.arr"
+            v-for="product in products.arr"
             :key="product.title"
             class="bg-neutral-100"
           >
