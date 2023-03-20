@@ -100,7 +100,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="py-10">
+  <div class="py-10 md:mr-3">
     <div class="my-10 hidden md:block">
       <div class="text-center my-5">
         <h1 class="font-bodoni text-3xl md:text-5xl tracking-tighter">
@@ -138,11 +138,29 @@ onMounted(() => {
           <h2 class="text-lg mb-4">{{ $t("paymentInfo") }}</h2>
           <div class="mb-5">
             <div class="relative mb-2">
+              <div
+                class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="w-5 h-5 text-gray-500 dark:text-gray-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
+                  />
+                </svg>
+              </div>
               <VField
                 type="email"
                 name="電子郵件"
                 id="email"
-                class="block px-2.5 pb-2.5 pt-4 w-full text-gray-900 bg-transparent border-1 border-gray-300 appearance-none focus:border-primary-dark focus:outline-none focus:ring-1 focus:ring-primary-dark peer"
+                class="block w-full p-3 pl-10 border border-gray-300 appearance-none focus:border-primary-dark focus:outline-none focus:ring-1 focus:ring-primary-dark peer"
                 placeholder=" "
                 :class="{ 'border-red-500': errors['電子郵件'] }"
                 rules="email|required"
@@ -193,11 +211,29 @@ onMounted(() => {
                 </div>
               </div>
               <div class="relative">
+                <div
+                  class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="w-5 h-5 text-gray-500 dark:text-gray-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
+                    />
+                  </svg>
+                </div>
                 <VField
                   type="text"
                   name="收件人地址"
                   id="address"
-                  class="block px-2.5 pb-2.5 pt-4 w-full bg-transparent border-1 border-gray-300 appearance-none placeholder:text-sm placeholder:text-black/50 focus:border-primary-dark focus:outline-none focus:ring-1 focus:ring-primary-dark peer"
+                  class="block w-full p-3 pl-10 border border-gray-300 appearance-none placeholder:text-sm placeholder:text-black/50 focus:border-primary-dark focus:outline-none focus:ring-1 focus:ring-primary-dark peer"
                   placeholder=" "
                   :class="{ 'border-red-500': errors['收件人地址'] }"
                   rules="required"
@@ -221,11 +257,29 @@ onMounted(() => {
           <n-divider />
           <div class="mb-5">
             <div class="relative mb-2">
+              <div
+                class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="w-5 h-5 text-gray-500 dark:text-gray-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
+                  />
+                </svg>
+              </div>
               <VField
                 type="text"
                 name="收件人姓名"
                 id="name"
-                class="block px-2.5 pb-2.5 pt-4 w-full text-gray-900 bg-transparent border-1 border-gray-300 appearance-none focus:border-primary-dark focus:outline-none focus:ring-1 focus:ring-primary-dark peer"
+                class="block w-full p-3 pl-10 border border-gray-300 appearance-none focus:border-primary-dark focus:outline-none focus:ring-1 focus:ring-primary-dark peer"
                 placeholder=" "
                 :class="{ 'border-red-500': errors['收件人姓名'] }"
                 rules="required"
@@ -246,11 +300,29 @@ onMounted(() => {
           </div>
           <div class="mb-5">
             <div class="relative mb-2">
+              <div
+                class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="w-5 h-5 text-gray-500 dark:text-gray-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3"
+                  />
+                </svg>
+              </div>
               <VField
                 type="tel"
                 name="收件人電話"
                 id="tel"
-                class="block px-2.5 pb-2.5 pt-4 w-full text-gray-900 bg-transparent border-1 border-gray-300 appearance-none focus:border-primary-dark focus:outline-none focus:ring-1 focus:ring-primary-dark peer"
+                class="block w-full p-3 pl-10 border border-gray-300 appearance-none focus:border-primary-dark focus:outline-none focus:ring-1 focus:ring-primary-dark peer"
                 placeholder=" "
                 oninput="value=value.replace(/[^\d]/g,'')"
                 :class="{ 'border-red-500': errors['收件人電話'] }"
@@ -274,10 +346,28 @@ onMounted(() => {
         <div class="mb-5">
           <h2 class="text-lg mb-4">{{ $t("message") }}</h2>
           <div class="relative mb-2">
+            <div
+              class="absolute inset-y-0 left-0 top-3.5 pl-3 pointer-events-none"
+            >
+              <svg
+                aria-hidden="true"
+                class="w-5 h-5 text-gray-500 dark:text-gray-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"
+                />
+              </svg>
+            </div>
             <textarea
               name="需求"
               id="message"
-              class="block px-2.5 pb-2.5 pt-4 w-full text-gray-900 bg-transparent border-1 border-gray-300 appearance-none focus:border-primary-dark focus:outline-none focus:ring-1 focus:ring-primary-dark peer"
+              class="block w-full p-3 pl-10 border border-gray-300 appearance-none focus:border-primary-dark focus:outline-none focus:ring-1 focus:ring-primary-dark peer"
               placeholder=" "
               cols="30"
               rows="6"
@@ -285,7 +375,7 @@ onMounted(() => {
             ></textarea>
             <label
               for="message"
-              class="absolute text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-primary-dark peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-[32px] peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+              class="absolute text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-primary-dark peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-6 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
             >
               {{ $t("messageContent") }}
             </label>

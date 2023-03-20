@@ -95,5 +95,8 @@
   "removeItem": "是否確認刪除？",
   "removeNotice": "如果您現在修改購物車內容，系統將會刪除已輸入或更新的部分資訊。",
   "noSearch": "找不到相關產品",
-  "reSearch": "請再重新篩選一次或重新整理"
+  "reSearch": "請再重新篩選一次或重新整理",
+  "discountMessage": "已套用優惠券",
+  "discountCode": "請輸入折扣碼",
+  "submit": "送出"
 }

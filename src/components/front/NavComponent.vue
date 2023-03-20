@@ -22,8 +22,7 @@ import { useChangeLangStore } from "@/stores/changeLangStore.js";
 
 // pinia carts
 const frontCartStore = useFrontCartStore();
-const { cart, cartsTotal, loadingCart, final_enTotal } =
-  storeToRefs(frontCartStore);
+const { cart, cartsTotal, loadingCart, enTotal } = storeToRefs(frontCartStore);
 const { getCarts, updateCart } = frontCartStore;
 
 // pinia language
@@ -319,10 +318,10 @@ const openDelModal = (cartItem) => {
         >
           <strong class="text-xl">
             <template v-if="localLang === 'zh_TW'">
-              NT$ {{ toThousands(cart.arr.final_total) }}
+              NT$ {{ toThousands(cart.arr.total) }}
             </template>
             <template v-else-if="localLang === 'en'">
-              $ {{ toThousands(final_enTotal) }}
+              $ {{ toThousands(enTotal) }}
             </template>
           </strong>
           <button

@@ -6,7 +6,7 @@ https://letcla0624.github.io/bottigaemo/
 
 ## Introduction
 
-使用 Vue 3 Composition API + Vite + Pinia + Naive UI + Tailwind CSS 3 實作時尚 Bottigaemo 購物網站。
+使用 Vue 3 Composition API + Vite + Pinia + Naive UI + Tailwind CSS 3 實作 Bottigaemo 購物網站。
 
 網站內的影音及圖片素材其版權所有權皆屬該品牌或原作者所有，如有從本網站下載素材使用，請自行承擔其法律責任。
 本網站僅作為個人作品練習用，並無任何營利行為。
@@ -24,16 +24,18 @@ https://letcla0624.github.io/bottigaemo/
 - Vue Router
 - Pinia
 - Naive UI
+- Flowbite
 - Tailwind CSS 3
 - ESLint
 - Vue LazyLoad
 - Heroicons
-- AOS
 - GSAP 3
 - Vee-Validate
 - Vue3 toastify
 - CKEditor 5
 - Swiper 9
+- Tw-City-Selector
 - Axios
 - Lottie Files
 - Restful API
+- i18n

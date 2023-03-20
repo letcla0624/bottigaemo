@@ -10,8 +10,8 @@ import { useChangeLangStore } from "@/stores/changeLangStore.js";
 
 // pinia cart
 const frontCartStore = useFrontCartStore();
-const { cart, final_enTotal } = storeToRefs(frontCartStore);
-const { getCarts } = frontCartStore;
+const { cart, final_enTotal, enTotal, code } = storeToRefs(frontCartStore);
+const { getCarts, useCoupon } = frontCartStore;
 
 // pinia language
 const changeLangStore = useChangeLangStore();
@@ -99,6 +99,59 @@ onMounted(() => {
             </p>
           </li>
         </ul>
+        <div class="py-5 border-b">
+          <div class="relative">
+            <div
+              class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
+            >
+              <svg
+                aria-hidden="true"
+                class="w-5 h-5 text-gray-500 dark:text-gray-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M3.75 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 013.75 9.375v-4.5zM3.75 14.625c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5a1.125 1.125 0 01-1.125-1.125v-4.5zM13.5 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0113.5 9.375v-4.5z"
+                />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6.75 6.75h.75v.75h-.75v-.75zM6.75 16.5h.75v.75h-.75v-.75zM16.5 6.75h.75v.75h-.75v-.75zM13.5 13.5h.75v.75h-.75v-.75zM13.5 19.5h.75v.75h-.75v-.75zM19.5 13.5h.75v.75h-.75v-.75zM19.5 19.5h.75v.75h-.75v-.75zM16.5 16.5h.75v.75h-.75v-.75z"
+                />
+              </svg>
+            </div>
+            <input
+              type="text"
+              id="discountCode"
+              class="block w-full p-4 pl-10 text-sm border border-gray-300 appearance-none focus:border-primary-dark focus:outline-none focus:ring-1 focus:ring-primary-dark peer"
+              placeholder=" "
+              v-model="code"
+            />
+            <label
+              for="discountCode"
+              class="absolute text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-primary-dark peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+            >
+              {{ $t("discountCode") }}
+            </label>
+            <button
+              type="button"
+              class="text-white absolute right-2.5 bottom-2.5 bg-black hover:bg-black/80 focus:outline-none font-medium text-sm px-4 py-2 disabled:opacity-25 disabled:cursor-not-allowed"
+              @click="useCoupon"
+              :disabled="code === ''"
+            >
+              {{ $t("submit") }}
+            </button>
+          </div>
+          <template v-if="cart.arr.total !== cart.arr.final_total">
+            <p class="tracking-wide text-primary mt-2">
+              {{ $t("discountMessage") }}
+            </p>
+          </template>
+        </div>
         <div class="border-b py-5">
           <div class="flex justify-between mb-3">
             <h6 class="">{{ $t("subtotal") }}</h6>
@@ -107,7 +160,7 @@ onMounted(() => {
                 + NT$ {{ toThousands(cart.arr.total) }}
               </template>
               <template v-else-if="localLang === 'en'">
-                + $ {{ toThousands(final_enTotal) }}
+                + $ {{ toThousands(enTotal) }}
               </template>
             </p>
           </div>
@@ -115,10 +168,10 @@ onMounted(() => {
             <h6 class="">{{ $t("discount") }}</h6>
             <p class="">
               <template v-if="localLang === 'zh_TW'">
-                - NT$ {{ toThousands(cart.arr.final_total - cart.arr.total) }}
+                - NT$ {{ toThousands(cart.arr.total - cart.arr.final_total) }}
               </template>
               <template v-else-if="localLang === 'en'">
-                - $ {{ toThousands(final_enTotal - final_enTotal) }}
+                - $ {{ toThousands(enTotal - final_enTotal) }}
               </template>
             </p>
           </div>

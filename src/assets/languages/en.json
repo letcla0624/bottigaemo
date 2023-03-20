@@ -95,5 +95,8 @@
   "removeItem": "Are you sure you want to delete?",
   "removeNotice": "If you modify the contents of your shopping cart now, the system will delete the entered or updated information.",
   "noSearch": "Cannot find related products.",
-  "reSearch": "Please search again."
+  "reSearch": "Please search again.",
+  "discountMessage": "Coupon applied.",
+  "discountCode": "Discount code",
+  "submit": "Submit"
 }

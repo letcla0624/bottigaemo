@@ -24,7 +24,7 @@ onMounted(() => {
     <div
       v-for="(article, idx) in newArticles.arr"
       :key="article.id"
-      class="grid md:grid-cols-2 items-center mb-20"
+      class="grid md:grid-cols-2 items-center mb-10 md:mb-20"
     >
       <div
         class="md:w-[80%] mx-auto"
@@ -60,7 +60,7 @@ onMounted(() => {
           </div>
         </div>
       </div>
-      <div class="w-[90%] md:w-[80%] text-left mx-auto mt-8 md:mt-0">
+      <div class="w-[90%] md:w-[80%] text-left mx-auto mt-4 md:mt-0">
         <h3 class="text-xl lg:text-3xl line-clamp-2">
           <template v-if="localLang === 'zh_TW'">
             {{ article.title }}
@@ -69,7 +69,9 @@ onMounted(() => {
             {{ article.enTitle }}
           </template>
         </h3>
-        <p class="text-gray-500 leading-loose line-clamp-3 mt-7 mb-5">
+        <p
+          class="text-gray-500 md:leading-loose line-clamp-3 mt-1 mb-5 md:mt-4"
+        >
           <template v-if="localLang === 'zh_TW'">
             {{ article.description }}
           </template>
@@ -79,20 +81,17 @@ onMounted(() => {
         </p>
         <router-link
           :to="`/article-detail/${article.id}`"
-          class="text-gray-600 flex items-center w-fit hoverBar py-1"
+          class="text-gray-600 flex items-center w-fit hoverBar"
         >
           <PlusSmallIcon class="w-4 h-4 inline stroke-2 mr-1" />
-          {{ $t("more") }}
+          <span class="border-b border-primary-dark"> {{ $t("more") }} </span>
         </router-link>
       </div>
     </div>
   </div>
-  <router-link
-    to="/articles"
-    class="flex items-center w-fit mx-auto hoverBar p-1"
-  >
+  <router-link to="/articles" class="btn btn-outline-dark px-5 w-fit mx-auto">
     {{ $t("moreArticles") }}
-    <ChevronRightIcon class="w-4 h-4 inline stroke-2" />
+    <ChevronRightIcon class="w-4 h-4 inline stroke-2 ml-1" />
   </router-link>
 </template>
 <style lang="scss">

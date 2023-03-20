@@ -227,7 +227,6 @@ onMounted(() => {
                   />
                 </div>
               </div>
-
               <div
                 class="grid gap-2 mt-5"
                 :class="{ 'grid-cols-2': product.obj.setSize }"

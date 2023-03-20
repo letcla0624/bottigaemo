@@ -93,10 +93,10 @@ onMounted(() => {
     </swiper>
     <router-link
       to="/products"
-      class="flex items-center w-fit mx-auto hoverBar p-1 m-4"
+      class="btn btn-outline-dark border-white px-5 w-fit mx-auto hover:bg-white hover:text-primary-dark mt-10"
     >
       {{ $t("moreProducts") }}
-      <ChevronRightIcon class="w-4 h-4 inline stroke-2" />
+      <ChevronRightIcon class="w-4 h-4 inline stroke-2 ml-1" />
     </router-link>
   </div>
 </template>

@@ -31,9 +31,11 @@ modelId.value = 1;
       </div>
     </section>
     <section>
-      <div class="relative bg-primary-dark text-white py-20 px-2 md:px-5">
+      <div
+        class="relative bg-primary-dark text-white pb-10 md:py-20 px-2 md:px-5"
+      >
         <SeparatorUpComponent class="fill-primary-dark" />
-        <div class="container text-center py-20">
+        <div class="container text-center">
           <h2
             class="text-xl md:text-3xl font-bold tracking-wider uppercase pt-5"
           >
@@ -44,7 +46,7 @@ modelId.value = 1;
       </div>
     </section>
     <FiftyComponent />
-    <section class="bg-white pb-20">
+    <section class="bg-white pb-10 md:pb-20">
       <div class="container mx-auto text-center">
         <h2
           class="text-xl md:text-3xl font-bold tracking-wider uppercase py-10 md:py-20"

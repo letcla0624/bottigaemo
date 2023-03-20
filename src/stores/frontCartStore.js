@@ -8,9 +8,11 @@ import { toast } from "vue3-toastify";
 import axios from "axios";
 
 export const useFrontCartStore = defineStore("frontCart", () => {
+  const { VITE_APP_API, VITE_APP_PATH } = import.meta.env;
   const cart = reactive({ arr: [] });
   const cartsTotal = ref(0);
   const final_enTotal = ref(0);
+  const enTotal = ref(0);
   const loadingCart = ref(false);
   const localLang = ref("");
 
@@ -25,15 +27,56 @@ export const useFrontCartStore = defineStore("frontCart", () => {
     return sum;
   };
 
+  const code = ref("");
+  const useCoupon = async () => {
+    localLang.value = localStorage.getItem("language");
+    const data = {
+      code: code.value,
+    };
+
+    try {
+      const res = await axios.post(
+        `${VITE_APP_API}/api/${VITE_APP_PATH}/coupon`,
+        { data }
+      );
+
+      code.value = "";
+
+      getCarts();
+
+      if (localLang.value === "zh_TW") {
+        toast(res.data.message, {
+          icon: CheckCircleIcon,
+          type: "success",
+        });
+      } else if (localLang.value === "en") {
+        toast("Coupon applied", {
+          icon: CheckCircleIcon,
+          type: "success",
+        });
+      }
+    } catch (err) {
+      code.value = "";
+
+      if (localLang.value === "zh_TW") {
+        toast(err.response.data.message, {
+          icon: ExclamationCircleIcon,
+          type: "error",
+        });
+      } else if (localLang.value === "en") {
+        toast("Coupon not found!", {
+          icon: ExclamationCircleIcon,
+          type: "error",
+        });
+      }
+    }
+  };
+
   const getCarts = async () => {
     loadingCart.value = true;
 
     try {
-      const res = await axios.get(
-        `${import.meta.env.VITE_APP_API}/api/${
-          import.meta.env.VITE_APP_PATH
-        }/cart`
-      );
+      const res = await axios.get(`${VITE_APP_API}/api/${VITE_APP_PATH}/cart`);
 
       loadingCart.value = false;
       cart.arr = res.data.data;
@@ -44,7 +87,8 @@ export const useFrontCartStore = defineStore("frontCart", () => {
       cart.arr.carts.forEach((item) => {
         priceArr.arr.push(item.item_enTotal);
       });
-      final_enTotal.value = priceArr.arr.reduce((acc, cur) => acc + cur, 0);
+      enTotal.value = priceArr.arr.reduce((acc, cur) => acc + cur, 0);
+      final_enTotal.value = enTotal.value * 0.95;
     } catch (err) {
       loadingCart.value = false;
       alert(err.response.data.message);
@@ -68,9 +112,7 @@ export const useFrontCartStore = defineStore("frontCart", () => {
       });
 
       const res = await axios.post(
-        `${import.meta.env.VITE_APP_API}/api/${
-          import.meta.env.VITE_APP_PATH
-        }/cart`,
+        `${VITE_APP_API}/api/${VITE_APP_PATH}/cart`,
         { data }
       );
 
@@ -108,9 +150,7 @@ export const useFrontCartStore = defineStore("frontCart", () => {
 
     try {
       const res = await axios.put(
-        `${import.meta.env.VITE_APP_API}/api/${
-          import.meta.env.VITE_APP_PATH
-        }/cart/${item.id}`,
+        `${VITE_APP_API}/api/${VITE_APP_PATH}/cart/${item.id}`,
         { data }
       );
 
@@ -142,9 +182,7 @@ export const useFrontCartStore = defineStore("frontCart", () => {
 
     try {
       const res = await axios.delete(
-        `${import.meta.env.VITE_APP_API}/api/${
-          import.meta.env.VITE_APP_PATH
-        }/cart/${id}`
+        `${VITE_APP_API}/api/${VITE_APP_PATH}/cart/${id}`
       );
 
       loadingCart.value = false;
@@ -179,5 +217,8 @@ export const useFrontCartStore = defineStore("frontCart", () => {
     updateCart,
     deleteCartItem,
     final_enTotal,
+    enTotal,
+    code,
+    useCoupon,
   };
 });
