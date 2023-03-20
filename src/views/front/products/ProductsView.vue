@@ -52,14 +52,51 @@ const activate = (place) => {
 
 let tempProducts = reactive({ arr: [] });
 const filters = reactive({ arr: [] });
+const filterProducts = ref([]);
+const sortSelect = ref("");
+
+const sortPrice = () => {
+  if (filterProducts.value.length === 0) {
+    filterProducts.value = products.value.arr;
+  }
+
+  if (sortSelect.value === "normal") {
+    init();
+    filters.arr = [];
+    filterProducts.value.length = 0;
+  } else if (sortSelect.value === "heightToLow") {
+    tempProducts.arr = filterProducts.value.sort((a, b) => b.price - a.price);
+  } else if (sortSelect.value === "lowToHeight") {
+    tempProducts.arr = filterProducts.value.sort((a, b) => a.price - b.price);
+  }
+};
 
 const filterCategory = async () => {
+  const bigPics = document.querySelectorAll(".bigPic");
   tempProducts = { ...products.value };
 
-  if (filters.arr.length !== 0) {
-    return (tempProducts.arr = tempProducts.arr.filter((item) =>
+  if (filters.arr.length === 0) {
+    bigPics.forEach((item) => {
+      detectWidth.value >= 768
+        ? item.classList.remove("hidden")
+        : item.classList.add("hidden");
+    });
+  } else {
+    bigPics.forEach((item) => {
+      item.classList.add("hidden");
+    });
+
+    filterProducts.value = products.value.arr.filter((item) =>
       filters.arr.includes(item.category)
-    ));
+    );
+
+    if (sortSelect.value !== "normal") {
+      sortPrice();
+    } else {
+      sortSelect.value = "";
+    }
+
+    tempProducts.arr = filterProducts.value;
   }
 };
 
@@ -154,6 +191,18 @@ onMounted(() => {
                 Total {{ tempProducts.arr.length }} products
               </template>
             </p>
+            <div class="border-l border-black/40 pl-3">
+              <select
+                class="form-select text-sm border-0 py-0 focus:ring-0"
+                v-model="sortSelect"
+                @change="sortPrice()"
+              >
+                <option value="" disabled>排序方式</option>
+                <option value="normal" selected>全部商品</option>
+                <option value="heightToLow">價格：由高至低</option>
+                <option value="lowToHeight">價格：由低至高</option>
+              </select>
+            </div>
           </div>
         </div>
         <div
@@ -234,7 +283,8 @@ onMounted(() => {
             </router-link>
           </div>
           <div
-            class="col-start-1 col-end-3 row-start-7 row-end-9 md:col-start-2 md:col-end-4 md:row-start-1 md:row-end-3 lg:col-start-3 lg:col-end-5 2xl:col-start-4 2xl:col-end-6 lg:row-start-1 lg:row-end-3 overflow-hidden bigPic hidden md:block"
+            class="col-start-1 col-end-3 row-start-7 row-end-9 md:col-start-2 md:col-end-4 md:row-start-1 md:row-end-3 lg:col-start-3 lg:col-end-5 2xl:col-start-4 2xl:col-end-6 lg:row-start-1 lg:row-end-3 overflow-hidden bigPic"
+            :class="{ hidden: detectWidth < 768 }"
             ref="bigPic1"
           >
             <img
@@ -244,7 +294,8 @@ onMounted(() => {
             />
           </div>
           <div
-            class="col-start-1 col-end-3 row-start-8 row-end-10 md:col-start-1 md:col-end-3 md:row-start-5 md:row-end-7 overflow-hidden bigPic hidden md:block"
+            class="col-start-1 col-end-3 row-start-8 row-end-10 md:col-start-1 md:col-end-3 md:row-start-5 md:row-end-7 overflow-hidden bigPic"
+            :class="{ hidden: detectWidth < 768 }"
             ref="bigPic2"
           >
             <img
