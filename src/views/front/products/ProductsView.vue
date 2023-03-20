@@ -56,7 +56,7 @@ const filterProducts = ref([]);
 const sortSelect = ref("");
 
 const sortPrice = () => {
-  if (filterProducts.value.length === 0) {
+  if (filters.arr.length === 0 && filterProducts.value.length === 0) {
     filterProducts.value = products.value.arr;
   }
 
@@ -89,6 +89,7 @@ const filterCategory = async () => {
     filterProducts.value = products.value.arr.filter((item) =>
       filters.arr.includes(item.category)
     );
+    console.log(filterProducts.value);
 
     if (sortSelect.value !== "normal") {
       sortPrice();
