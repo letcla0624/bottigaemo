@@ -1,6 +1,7 @@
 <script setup>
 import { ref, reactive, inject, onMounted } from "vue";
 import LoadingComponent from "@/components/LoadingComponent.vue";
+import LoveComponent from "@/components/LoveComponent.vue";
 import HeartFillComponent from "@/components/svgPath/HeartFillComponent.vue";
 import NoSearchComponent from "@/components/NoSearchComponent.vue";
 import { toThousands } from "@/composable/toThousands.js";
@@ -32,7 +33,7 @@ const { getProducts } = frontProductsStore;
 
 // pinia favorite
 const frontFavoriteStore = useFrontFavoriteStore();
-const { favoriteProdArr } = storeToRefs(frontFavoriteStore);
+const { favoriteProdArr, startFavoriteAnim } = storeToRefs(frontFavoriteStore);
 const { toggleFavorite } = frontFavoriteStore;
 
 // pinia language
@@ -89,7 +90,6 @@ const filterCategory = async () => {
     filterProducts.value = products.value.arr.filter((item) =>
       filters.arr.includes(item.category)
     );
-    console.log(filterProducts.value);
 
     if (sortSelect.value !== "normal") {
       sortPrice();
@@ -216,7 +216,7 @@ onMounted(() => {
           class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-2 m-2"
         >
           <div
-            v-for="product in tempProducts.arr"
+            v-for="(product, idx) in tempProducts.arr"
             :key="product.title"
             class="bg-neutral-100"
           >
@@ -236,7 +236,7 @@ onMounted(() => {
                   {{ $t("more") }}
                   <button
                     type="button"
-                    class="absolute right-0 top-0 p-3"
+                    class="absolute right-0 top-0 p-3 z-[1]"
                     @click.prevent="toggleFavorite(product.id)"
                   >
                     <n-tooltip
@@ -257,6 +257,9 @@ onMounted(() => {
                       {{ $t("removeFavorites") }}
                     </n-tooltip>
                   </button>
+                  <template v-if="startFavoriteAnim">
+                    <LoveComponent :idx="idx" />
+                  </template>
                 </div>
               </div>
               <div class="md:bg-neutral-100 p-2 md:py-4">

@@ -3,6 +3,7 @@ import { ref, reactive, onMounted, inject } from "vue";
 import { useRoute } from "vue-router";
 import axios from "axios";
 import LoadingComponent from "@/components/LoadingComponent.vue";
+import loveJSON from "@/assets/JSON/love.json";
 import { toThousands } from "@/composable/toThousands.js";
 import HeartFillComponent from "@/components/svgPath/HeartFillComponent.vue";
 import SwiperOtherProdsComponent from "@/components/front/prod/SwiperOtherProdsComponent.vue";
@@ -100,6 +101,20 @@ const getCategoryProducts = async () => {
   }
 };
 
+// 加入願望清單動畫
+const anim = ref(null);
+const startFavoriteAnimFn = (id) => {
+  const prodId = JSON.parse(localStorage.getItem("prodId"));
+
+  if (prodId.includes(id)) {
+    anim.value.play();
+  }
+
+  setTimeout(() => {
+    anim.value.stop();
+  }, 1200);
+};
+
 onMounted(() => {
   getProduct();
 });
@@ -176,25 +191,41 @@ onMounted(() => {
                     $ {{ toThousands(product.obj.enPrice) }}
                   </template>
                 </p>
-                <button type="button" @click="toggleFavorite(product.obj.id)">
-                  <n-tooltip
-                    trigger="hover"
-                    v-if="!favoriteProdArr.arr.includes(product.obj.id)"
+                <div class="relative">
+                  <button
+                    type="button"
+                    class="relative p-3 z-[1]"
+                    @click="
+                      toggleFavorite(product.obj.id);
+                      startFavoriteAnimFn(product.obj.id);
+                    "
                   >
-                    <template #trigger>
-                      <HeartIcon class="cursor-pointer iconHover w-5 h-5" />
-                    </template>
-                    {{ $t("addFavorites") }}
-                  </n-tooltip>
-                  <n-tooltip trigger="hover" v-else>
-                    <template #trigger>
-                      <HeartFillComponent
-                        class="cursor-pointer iconHover w-5 h-5 fill-primary-dark"
-                      />
-                    </template>
-                    {{ $t("removeFavorites") }}
-                  </n-tooltip>
-                </button>
+                    <n-tooltip
+                      trigger="hover"
+                      v-if="!favoriteProdArr.arr.includes(product.obj.id)"
+                    >
+                      <template #trigger>
+                        <HeartIcon class="cursor-pointer iconHover w-5 h-5" />
+                      </template>
+                      {{ $t("addFavorites") }}
+                    </n-tooltip>
+                    <n-tooltip trigger="hover" v-else>
+                      <template #trigger>
+                        <HeartFillComponent
+                          class="cursor-pointer iconHover w-5 h-5 fill-primary-dark"
+                        />
+                      </template>
+                      {{ $t("removeFavorites") }}
+                    </n-tooltip>
+                  </button>
+                  <lottie-animation
+                    ref="anim"
+                    :animationData="loveJSON"
+                    :loop="false"
+                    :autoPlay="false"
+                    class="w-14 absolute -top-1 -right-[6px] scale-125 z-0"
+                  />
+                </div>
               </div>
 
               <div

@@ -1,9 +1,10 @@
 <script setup>
 import { inject } from "vue";
 import HeartFillComponent from "@/components/svgPath/HeartFillComponent.vue";
+import LoveComponent from "@/components/LoveComponent.vue";
 import { toThousands } from "@/composable/toThousands.js";
 import { PlusIcon, HeartIcon } from "@heroicons/vue/24/outline";
-// HeartIcon
+
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 import "swiper/css/free-mode";
@@ -15,7 +16,7 @@ import { useChangeLangStore } from "@/stores/changeLangStore.js";
 
 // pinia favorite
 const frontFavoriteStore = useFrontFavoriteStore();
-const { favoriteProdArr } = storeToRefs(frontFavoriteStore);
+const { favoriteProdArr, startFavoriteAnim } = storeToRefs(frontFavoriteStore);
 const { toggleFavorite } = frontFavoriteStore;
 
 // pinia language
@@ -94,6 +95,9 @@ const props = defineProps({
                     {{ $t("removeFavorites") }}
                   </n-tooltip>
                 </button>
+                <template v-if="startFavoriteAnim">
+                  <LoveComponent />
+                </template>
               </div>
             </div>
             <div class="bg-neutral-100 text-center p-3">

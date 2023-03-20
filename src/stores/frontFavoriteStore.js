@@ -16,15 +16,24 @@ export const useFrontFavoriteStore = defineStore("frontFavorite", () => {
   };
 
   // 加入願望清單商品
+  const startFavoriteAnim = ref(false);
   const toggleFavorite = (id) => {
     const itemIdx = favoriteProdArr.arr.findIndex((item) => item === id);
     const message = ref("");
 
     getLocalLang();
 
-    itemIdx === -1
-      ? favoriteProdArr.arr.push(id)
-      : favoriteProdArr.arr.splice(itemIdx, 1);
+    if (itemIdx === -1) {
+      startFavoriteAnim.value = true;
+      favoriteProdArr.arr.push(id);
+
+      setTimeout(() => {
+        startFavoriteAnim.value = false;
+      }, 1200);
+    } else {
+      startFavoriteAnim.value = false;
+      favoriteProdArr.arr.splice(itemIdx, 1);
+    }
 
     if (localLang.value === "zh_TW") {
       itemIdx === -1
@@ -101,5 +110,6 @@ export const useFrontFavoriteStore = defineStore("frontFavorite", () => {
     isLoading,
     tempFavoriteProds,
     removeFavoriteProd,
+    startFavoriteAnim,
   };
 });
