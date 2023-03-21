@@ -33,15 +33,21 @@ onMounted(() => {
       <ul class="list-unstyled flex items-center justify-center text-xs">
         <li class="flex items-center">
           <RouterLink to class="hover:text-primary">
-            <span @click="$router.back(-1)" class="hoverBar">返回頁面</span>
+            <span @click="$router.back(-1)" class="hoverBar whitespace-nowrap">
+              {{ $t("return") }}
+            </span>
           </RouterLink>
           <ChevronRightIcon class="w-4 h-4 inline stroke-2 mx-2 opacity-50" />
         </li>
         <li class="flex items-center">
-          <span class="">聯絡資訊</span>
+          <span class="whitespace-nowrap">{{ $t("paymentMethod") }}</span>
           <ChevronRightIcon class="w-4 h-4 inline stroke-2 mx-2 opacity-50" />
         </li>
-        <li class="pr-2 opacity-50"><span class="">付款</span></li>
+        <li class="pr-2 opacity-50">
+          <span class="whitespace-nowrap">
+            {{ $t("orderConfirmation") }}
+          </span>
+        </li>
       </ul>
     </div>
     <n-collapse
@@ -127,7 +133,7 @@ onMounted(() => {
             <input
               type="text"
               id="discountCode"
-              class="block w-full p-4 pl-10 text-sm border border-gray-300 appearance-none focus:border-primary-dark focus:outline-none focus:ring-1 focus:ring-primary-dark peer"
+              class="block w-full p-4 pl-10 border border-gray-300 appearance-none focus:border-primary-dark focus:outline-none focus:ring-1 focus:ring-primary-dark peer"
               placeholder=" "
               v-model="code"
             />

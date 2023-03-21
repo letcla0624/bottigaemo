@@ -1,5 +1,5 @@
 <script setup>
-import { ref, reactive, onMounted } from "vue";
+import { ref, reactive, onMounted, watch } from "vue";
 import { useRouter } from "vue-router";
 import { NDivider } from "naive-ui";
 import {
@@ -16,6 +16,7 @@ import { useFrontCartStore } from "@/stores/frontCartStore.js";
 import { useChangeLangStore } from "@/stores/changeLangStore.js";
 
 import TwCitySelector from "tw-city-selector";
+import { setLocale } from "@vee-validate/i18n";
 
 // pinia cart
 const frontCartStore = useFrontCartStore();
@@ -46,10 +47,30 @@ const zipcode = ref(null);
 const street = ref("");
 const error = ref(false);
 
+// 判斷 vee-validate 語系
+setLocale(localLang.value);
+
 const isPhone = (value) => {
   const phoneNumber = /^(09)[0-9]{8}$/;
-  return phoneNumber.test(value) ? true : "需要輸入 09 開頭的台灣手機格式";
+
+  return phoneNumber.test(value)
+    ? true
+    : localLang.value === "zh_TW"
+    ? "需要輸入 09 開頭的台灣手機格式"
+    : "Taiwanese mobile phone number format starting with 09 is required.";
 };
+
+const fieldEmail = ref(localLang.value === "zh_TW" ? "電子郵件" : "Email");
+const fieldAddress = ref(
+  localLang.value === "zh_TW" ? "收件人地址 " : "Address"
+);
+const fieldName = ref(localLang.value === "zh_TW" ? "收件人姓名 " : "Name");
+
+watch(localLang, (newVal) => {
+  fieldEmail.value = newVal === "zh_TW" ? "電子郵件" : "Email";
+  fieldAddress.value = newVal === "zh_TW" ? "收件人地址" : "Address";
+  fieldName.value = newVal === "zh_TW" ? "收件人姓名 " : "Name";
+});
 
 const createOrder = async () => {
   loading.value = true;
@@ -110,18 +131,18 @@ onMounted(() => {
       <ul class="list-unstyled flex items-center justify-center text-xs">
         <li class="flex items-center">
           <RouterLink to class="hover:text-primary">
-            <span @click="$router.back(-1)" class="hoverBar">
+            <span @click="$router.back(-1)" class="hoverBar whitespace-nowrap">
               {{ $t("return") }}
             </span>
           </RouterLink>
           <ChevronRightIcon class="w-4 h-4 inline stroke-2 mx-2 opacity-50" />
         </li>
         <li class="flex items-center">
-          <span class="">{{ $t("paymentMethod") }}</span>
+          <span class="whitespace-nowrap">{{ $t("paymentMethod") }}</span>
           <ChevronRightIcon class="w-4 h-4 inline stroke-2 mx-2 opacity-50" />
         </li>
         <li class="pr-2 opacity-50">
-          <span class="">
+          <span class="whitespace-nowrap">
             {{ $t("orderConfirmation") }}
           </span>
         </li>
@@ -158,11 +179,13 @@ onMounted(() => {
               </div>
               <VField
                 type="email"
-                name="電子郵件"
+                :name="fieldEmail"
                 id="email"
                 class="block w-full p-3 pl-10 border border-gray-300 appearance-none focus:border-primary-dark focus:outline-none focus:ring-1 focus:ring-primary-dark peer"
                 placeholder=" "
-                :class="{ 'border-red-500': errors['電子郵件'] }"
+                :class="{
+                  'border-red-500': errors[fieldEmail],
+                }"
                 rules="email|required"
                 v-model="data.user.email"
               />
@@ -177,7 +200,7 @@ onMounted(() => {
                 </span>
               </label>
             </div>
-            <error-message name="電子郵件" class="text-red-500 text-sm" />
+            <error-message :name="fieldEmail" class="text-red-500 text-sm" />
           </div>
         </div>
         <div class="mb-10">
@@ -231,11 +254,11 @@ onMounted(() => {
                 </div>
                 <VField
                   type="text"
-                  name="收件人地址"
+                  :name="fieldAddress"
                   id="address"
                   class="block w-full p-3 pl-10 border border-gray-300 appearance-none placeholder:text-sm placeholder:text-black/50 focus:border-primary-dark focus:outline-none focus:ring-1 focus:ring-primary-dark peer"
                   placeholder=" "
-                  :class="{ 'border-red-500': errors['收件人地址'] }"
+                  :class="{ 'border-red-500': errors[fieldAddress] }"
                   rules="required"
                   v-model="street"
                 />
@@ -252,7 +275,7 @@ onMounted(() => {
                 </label>
               </div>
             </div>
-            <error-message name="收件人地址" class="text-red-500 text-sm" />
+            <error-message :name="fieldAddress" class="text-red-500 text-sm" />
           </div>
           <n-divider />
           <div class="mb-5">
@@ -277,11 +300,11 @@ onMounted(() => {
               </div>
               <VField
                 type="text"
-                name="收件人姓名"
+                :name="fieldName"
                 id="name"
                 class="block w-full p-3 pl-10 border border-gray-300 appearance-none focus:border-primary-dark focus:outline-none focus:ring-1 focus:ring-primary-dark peer"
                 placeholder=" "
-                :class="{ 'border-red-500': errors['收件人姓名'] }"
+                :class="{ 'border-red-500': errors['fieldName'] }"
                 rules="required"
                 v-model="data.user.name"
               />
@@ -296,7 +319,7 @@ onMounted(() => {
                 </span>
               </label>
             </div>
-            <error-message name="收件人姓名" class="text-red-500 text-sm" />
+            <error-message :name="fieldName" class="text-red-500 text-sm" />
           </div>
           <div class="mb-5">
             <div class="relative mb-2">
@@ -347,7 +370,7 @@ onMounted(() => {
           <h2 class="text-lg mb-4">{{ $t("message") }}</h2>
           <div class="relative mb-2">
             <div
-              class="absolute inset-y-0 left-0 top-3.5 pl-3 pointer-events-none"
+              class="absolute inset-y-0 left-0 top-3.5 pl-3 pointer-events-none hidden lg:block"
             >
               <svg
                 aria-hidden="true"
@@ -360,14 +383,14 @@ onMounted(() => {
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"
+                  d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125"
                 />
               </svg>
             </div>
             <textarea
               name="需求"
               id="message"
-              class="block w-full p-3 pl-10 border border-gray-300 appearance-none focus:border-primary-dark focus:outline-none focus:ring-1 focus:ring-primary-dark peer"
+              class="block w-full p-3 lg:pl-10 border border-gray-300 appearance-none focus:border-primary-dark focus:outline-none focus:ring-1 focus:ring-primary-dark peer"
               placeholder=" "
               cols="30"
               rows="6"

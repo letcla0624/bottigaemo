@@ -48,18 +48,23 @@ Object.keys(AllRules).forEach((rule) => {
   defineRule(rule, AllRules[rule]);
 });
 
+// 取得進入語系
+if (localStorage.getItem("language") === null) {
+  localStorage.setItem("language", "zh_TW");
+}
+
 // 設定 Vee-Validate
 configure({
-  generateMessage: localize({ zh_TW: zh_TW }),
+  generateMessage: localize({ zh_TW: zh_TW, en: en }),
   validateOnInput: true,
 });
 
-// 設定預設語系
-setLocale("zh_TW");
+// 設定 Vee-Validate 預設語系
+setLocale(localStorage.getItem("language") || "zh_TW");
 
 const i18n = createI18n({
   legacy: false,
-  locale: "zh_TW",
+  locale: localStorage.getItem("language") || "zh_TW",
   messages: {
     en,
     zh_TW: zh,

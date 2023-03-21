@@ -19,23 +19,24 @@ https://letcla0624.github.io/bottigaemo/
 
 ## Use Technology & Library
 
-- Vue 3
-- Vite
-- Vue Router
-- Pinia
-- Naive UI
-- Flowbite
-- Tailwind CSS 3
-- ESLint
-- Vue LazyLoad
-- Heroicons
-- GSAP 3
-- Vee-Validate
-- Vue3 toastify
-- CKEditor 5
-- Swiper 9
-- Tw-City-Selector
+- AOS
 - Axios
-- Lottie Files
-- Restful API
+- CKEditor 5
+- ESLint
+- Flowbite
+- GSAP 3
+- Heroicons
 - i18n
+- Lottie Files
+- Naive UI
+- Pinia
+- Restful API
+- Swiper 9
+- Tailwind CSS 3
+- Tw-City-Selector
+- Vee-Validate
+- Vite
+- Vue 3
+- Vue 3 toastify
+- Vue LazyLoad
+- Vue Router

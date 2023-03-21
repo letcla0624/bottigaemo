@@ -37,11 +37,6 @@ onMounted(() => {
     window.event.returnValue = false;
   };
 
-  // 取得進入語系
-  if (localStorage.getItem("language") === "null") {
-    localStorage.setItem("language", "zh_TW");
-  }
-
   getDate();
   AOS.init();
 });
