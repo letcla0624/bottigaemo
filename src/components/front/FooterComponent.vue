@@ -1,5 +1,7 @@
 <script setup>
 import { ref, inject, defineEmits, onMounted } from "vue";
+import { NEllipsis } from "naive-ui";
+import NotiComponent from "../NotiComponent.vue";
 import {
   CreditCardIcon,
   TruckIcon,
@@ -64,57 +66,66 @@ onMounted(() => {
           </li>
         </ul>
       </div>
-      <ul
-        class="grid gap-y-10 grid-cols-2 lg:grid-cols-4 border-y border-white/30 py-10 px-3"
-      >
-        <li class="w-full lg:border-r border-white/30">
-          <h4 class="text-xl uppercase mb-3">{{ $t("shippingAndReturns") }}</h4>
-          <TruckIcon class="w-12 h-12 stroke-1 mx-auto my-4" />
-          <p class="text-white/50">
-            {{ $t("shippingContent1") }}<br />
-            {{ $t("shippingContent2") }}
-          </p>
-        </li>
-        <li class="w-full lg:border-r border-white/30">
-          <h4 class="text-xl uppercase mb-3">{{ $t("payment") }}</h4>
-          <CreditCardIcon class="w-12 h-12 stroke-1 mx-auto my-4" />
-          <p class="text-white/50">
-            {{ $t("paymentContent1") }}<br />
-            {{ $t("paymentContent2") }}
-          </p>
-        </li>
-        <li class="w-full lg:border-r border-white/30">
-          <h4 class="text-xl uppercase mb-3">{{ $t("gifts") }}</h4>
-          <GiftIcon class="w-12 h-12 stroke-1 mx-auto my-4" />
-          <p class="text-white/50">
-            {{ $t("giftsContent1") }}<br />
-            {{ $t("giftsContent2") }}
-          </p>
-        </li>
-        <li class="w-full">
-          <h4 class="text-xl uppercase mb-3">{{ $t("service") }}</h4>
-          <ChatBubbleBottomCenterTextIcon
-            class="w-12 h-12 stroke-1 mx-auto my-4"
-          />
-          <p class="text-white/50">
-            {{ $t("serviceContent1") }}<br />
-            AM 10:00 - PM 06:00<br />
-            <a href="tel:+886-22984765">
-              {{ $t("serviceContent2") }}: +886-22984765
-            </a>
-          </p>
-        </li>
-      </ul>
+      <div class="border-y border-white/30">
+        <div class="max-w-[2360px] mx-auto py-10 px-3">
+          <ul class="grid gap-y-10 grid-cols-2 lg:grid-cols-4">
+            <li class="w-full lg:border-r border-white/30">
+              <h4 class="text-xl uppercase mb-3">
+                {{ $t("shippingAndReturns") }}
+              </h4>
+              <TruckIcon class="w-12 h-12 stroke-1 mx-auto my-4" />
+              <p class="text-white/50">
+                {{ $t("shippingContent1") }}<br />
+                {{ $t("shippingContent2") }}
+              </p>
+            </li>
+            <li class="w-full lg:border-r border-white/30">
+              <h4 class="text-xl uppercase mb-3">{{ $t("payment") }}</h4>
+              <CreditCardIcon class="w-12 h-12 stroke-1 mx-auto my-4" />
+              <p class="text-white/50">
+                {{ $t("paymentContent1") }}<br />
+                {{ $t("paymentContent2") }}
+              </p>
+            </li>
+            <li class="w-full lg:border-r border-white/30">
+              <h4 class="text-xl uppercase mb-3">{{ $t("gifts") }}</h4>
+              <GiftIcon class="w-12 h-12 stroke-1 mx-auto my-4" />
+              <p class="text-white/50">
+                {{ $t("giftsContent1") }}<br />
+                {{ $t("giftsContent2") }}
+              </p>
+            </li>
+            <li class="w-full">
+              <h4 class="text-xl uppercase mb-3">{{ $t("service") }}</h4>
+              <ChatBubbleBottomCenterTextIcon
+                class="w-12 h-12 stroke-1 mx-auto my-4"
+              />
+              <p class="text-white/50">
+                {{ $t("serviceContent1") }}<br />
+                AM 10:00 - PM 06:00<br />
+                <a href="tel:+886-22984765">
+                  {{ $t("serviceContent2") }}: +886-22984765
+                </a>
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
       <div class="border-b border-white/30 text-white/50">
         <div class="container mx-auto">
           <div class="md:flex justify-between items-center">
             <ul class="md:flex justify-center items-center">
-              <li class="p-4 m-4">
+              <li class="p-4 my-4">
                 <router-link to="/privacy">{{ $t("privacy") }}</router-link>
+              </li>
+              <li class="p-4 my-4">
+                <n-notification-provider :max="1">
+                  <NotiComponent class="max-w-[300px]" />
+                </n-notification-provider>
               </li>
             </ul>
             <select
-              class="form-select text-sm bg-primary-dark border-0 focus:ring-0 my-5 md:m-0"
+              class="form-select text-sm bg-primary-dark border-0 focus:ring-0 mb-5 md:m-0"
               v-model="language"
               @change="changeLang"
             >
@@ -126,24 +137,31 @@ onMounted(() => {
         </div>
       </div>
       <div class="container text-white/50 px-3 py-5">
-        <small class="text-xs">
-          <span>
+        <div class="flex flex-col lg:flex-row justify-between items-center">
+          <small
+            class="lg:text-left mb-3 lg:pr-2 lg:mb-0 lg:border-r border-white/30"
+          >
+            <n-ellipsis expand-trigger="click" line-clamp="1" :tooltip="false">
+              {{ $t("low") }}
+            </n-ellipsis>
+          </small>
+          <small class="sm:whitespace-nowrap pl-2">
             &copy; {{ year }} Bottigaemo - All Rights Reserved | Design & Code
             by WILL.
-          </span>
-          <br v-show="detectWidth < 1290" />
-          <span>
-            {{ $t("low") }}
-          </span>
-        </small>
+          </small>
+        </div>
       </div>
     </footer>
   </div>
 </template>
 <style lang="scss" scoped>
 .has-animation {
-  padding-bottom: calc(725px);
+  padding-bottom: calc(722px);
+  @media screen and (max-width: 1023px) {
+    padding-bottom: 0 !important;
+  }
 }
+
 .footer {
   a {
     &:hover {

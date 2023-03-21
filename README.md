@@ -33,10 +33,12 @@ https://letcla0624.github.io/bottigaemo/
 - Restful API
 - Swiper 9
 - Tailwind CSS 3
-- Tw-City-Selector
-- Vee-Validate
+- Tw City Selector
+- Vee Validate
 - Vite
+- VideoJS
 - Vue 3
-- Vue 3 toastify
+- Vue 3 Toastify
 - Vue LazyLoad
+- Vue Masonry
 - Vue Router

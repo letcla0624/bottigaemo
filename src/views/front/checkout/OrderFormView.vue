@@ -187,7 +187,7 @@ onMounted(() => {
                   'border-red-500': errors[fieldEmail],
                 }"
                 rules="email|required"
-                v-model="data.user.email"
+                v-model.trim="data.user.email"
               />
               <label
                 for="email"
@@ -260,7 +260,7 @@ onMounted(() => {
                   placeholder=" "
                   :class="{ 'border-red-500': errors[fieldAddress] }"
                   rules="required"
-                  v-model="street"
+                  v-model.trim="street"
                 />
 
                 <label
@@ -306,7 +306,7 @@ onMounted(() => {
                 placeholder=" "
                 :class="{ 'border-red-500': errors['fieldName'] }"
                 rules="required"
-                v-model="data.user.name"
+                v-model.trim="data.user.name"
               />
               <label
                 for="name"
@@ -350,7 +350,7 @@ onMounted(() => {
                 oninput="value=value.replace(/[^\d]/g,'')"
                 :class="{ 'border-red-500': errors['收件人電話'] }"
                 :rules="isPhone"
-                v-model="data.user.tel"
+                v-model.trim="data.user.tel"
               />
               <label
                 for="tel"
@@ -394,7 +394,7 @@ onMounted(() => {
               placeholder=" "
               cols="30"
               rows="6"
-              v-model="data.message"
+              v-model.trim="data.message"
             ></textarea>
             <label
               for="message"

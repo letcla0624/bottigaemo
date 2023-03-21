@@ -15,13 +15,16 @@
 
 @layer components {
   .btn{
-    @apply text-center border flex justify-center items-center px-4 py-3 transition-all duration-300;
+    @apply text-center border flex justify-center items-center cursor-pointer px-4 py-3 transition-all duration-300;
   }
   .btn-dark {
     @apply text-white bg-primary-dark border-transparent hover:bg-black/80;
   }
   .btn-outline-dark {
     @apply border border-primary-dark  hover:text-white hover:bg-primary-dark;
+  }
+  .btn-outline-white {
+    @apply border border-white  hover:text-primary-dark hover:bg-white;
   }
 }
 

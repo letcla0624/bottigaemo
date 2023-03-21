@@ -16,6 +16,7 @@ const changeLangStore = useChangeLangStore();
 const { localLang } = storeToRefs(changeLangStore);
 
 const renovate = inject("reload");
+const detectWidth = inject("detectWidth");
 
 watch(
   localLang,
@@ -33,16 +34,82 @@ onMounted(() => {
 
 <template>
   <div>
-    <div class="pt-[72px]">
+    <div class="">
       <LoadingComponent v-if="isLoading" />
       <div v-else class="bg-primary-dark text-white min-h-screen">
-        <div class="tracking-wider text-center py-20 md:py-36">
-          <h2 class="text-xl md:text-3xl font-bold mb-1">
-            <template v-if="localLang === 'zh_TW'"> 品牌動向 </template>
-            <template v-else-if="localLang === 'en'">
-              Bottigaemo Club
-            </template>
-          </h2>
+        <!-- <div
+          class="tracking-wider text-center flex justify-center items-center w-full h-[400px] aspect-video py-10 md:pt-20 mb-10"
+          style="
+            background: url('https://images.unsplash.com/photo-1508162245510-bf2772371e86?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3570&q=80')
+              center center no-repeat;
+            background-size: cover;
+          "
+        >
+          <div class="flex justify-center items-center">
+            <h2
+              class="text-2xl md:text-4xl font-bodoni tracking-tighter text-primary-dark mb-1"
+            >
+              <em class="">Bottiga</em>
+              <span>emo</span>
+            </h2>
+            <span class="text-2xl text-primary-dark mx-4"> & </span>
+            <h2
+              class="text-lg md:text-xl uppercase text-primary-dark font-extrabold text-left leading-tight mb-1"
+            >
+              <span>People</span><br />
+              <span>For Wildlife</span>
+            </h2>
+          </div>
+        </div> -->
+        <div class="w-screen relative mb-10">
+          <div
+            class="absolute w-full h-full text-center flex justify-center items-center z-[1]"
+          >
+            <div class="flex justify-center items-center text-white">
+              <h2
+                class="text-2xl md:text-4xl font-bodoni tracking-tighter mb-1"
+              >
+                <em class="">Bottiga</em>
+                <span>emo</span>
+              </h2>
+              <span class="text-2xl mx-4 lg:mx-8"> & </span>
+              <h2
+                class="text-lg md:text-2xl uppercase font-extrabold text-left tracking-wider leading-tight mb-1"
+              >
+                <template v-if="localLang === 'zh_TW'">
+                  <span>品牌動態總覽</span>
+                </template>
+                <template v-else-if="localLang === 'en'">
+                  <span>People</span><br />
+                  <span>For Wildlife</span>
+                </template>
+              </h2>
+            </div>
+          </div>
+          <video
+            v-if="detectWidth < 768"
+            autoplay
+            loop
+            muted
+            playsinline
+            controlslist="nodownload"
+            poster="https://storage.googleapis.com/vue-course-api.appspot.com/letcla-fashion/1679403717714.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=lFMohhC3cjwAftQpyIOqKYSc1afms%2BV%2FTwABGY8GgAce84aybr9RPRtwQeDb6Vnc7Bkm6C4ylyh971WD3H6kkjAb8Lwgr%2FY9f9VRwvPL%2B5dOKy%2FrSPoDxa22YoTFXN5qoYH5PKyJHXlIvWWfiur%2BxPpyA2NJmYx07SrBa2U%2FI%2B%2F8iXO64LSVyfGBaJGPB2wO8%2FuD9PDAIv35eyB%2BnYamfO%2B1ICyAiVSXGKh3tojn1PAm66Pylsp6x4hCC%2BWFVUPw1GFFafFPYM9K2tJ%2FqQ%2FgVPGqv8KBk1jrNoJQbvi95Q134RKxSmi%2BpSCwMl%2BA0dZFUPcZAXoIuLEVWpfweXj3Eg%3D%3D"
+            class="w-full h-[500px] object-cover"
+          >
+            <source src="/video/articles/banner-phone.mp4" type="video/mp4" />
+          </video>
+          <video
+            v-else
+            autoplay
+            loop
+            muted
+            playsinline
+            controlslist="nodownload"
+            poster="https://storage.googleapis.com/vue-course-api.appspot.com/letcla-fashion/1679403696900.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=VaJdqZB%2BHh18aOIahaezZ%2B6FA2%2B4Bsnq1HkLG%2BhOL2pXDS4bZP4od66JhUUWYOd6pLdrq5sdzH99b95caZr7ispIVkMjXxcWKBUPP%2BW4aEglZD%2BRm3y%2BT080BeczKddXrTagCKn%2B2bnJaDAgetRqawjbjBjzJWbFiOIzm%2FVFZZHACOgPaw52HamAkEHTr7SkymXuoVLhXBnHiSzom83axmo0MOBjzwkR01x2VtaHeC%2F6GMEJvVT5gR%2F7Nffxha1jt9H%2FXkZzThD%2BohAxAg19wHLgD%2BEn%2FVtGMP%2FMhifxUJGL7i8rLnRoKk5CP3ShwvXcjRpI%2BR57LxvNbc6WIprQlw%3D%3D"
+            class="w-full max-h-[700px] object-cover"
+          >
+            <source src="/video/articles/banner.mp4" type="video/mp4" />
+          </video>
         </div>
         <div class="container">
           <div
@@ -53,7 +120,7 @@ onMounted(() => {
           >
             <div
               v-masonry-tile
-              class="item w-full sm:w-1/2 lg:w-1/3 p-1"
+              class="item w-full sm:w-1/2 lg:w-1/3"
               v-for="article in articles.arr"
               :key="article.title"
             >

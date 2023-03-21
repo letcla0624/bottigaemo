@@ -63,20 +63,18 @@ onMounted(() => {
 
 <template>
   <div>
-    <div>
-      <NavComponent @open-menu="openMenu" />
-      <router-view
-        v-if="isRouterAlive"
-        v-slot="{ Component }"
-        class="relative main bg-white min-h-screen"
-        :key="key"
-      >
-        <transition name="fadeIn" mode="out-in">
-          <component :is="Component" />
-        </transition>
-      </router-view>
-      <FooterComponent @language="changeLang" />
-    </div>
+    <NavComponent @open-menu="openMenu" />
+    <router-view
+      v-if="isRouterAlive"
+      v-slot="{ Component }"
+      class="relative main bg-white min-h-screen"
+      :key="key"
+    >
+      <transition name="fadeIn" mode="out-in">
+        <component :is="Component" />
+      </transition>
+    </router-view>
+    <FooterComponent @language="changeLang" />
   </div>
 </template>
 

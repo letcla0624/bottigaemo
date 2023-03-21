@@ -135,7 +135,7 @@ onMounted(() => {
               id="discountCode"
               class="block w-full p-4 pl-10 border border-gray-300 appearance-none focus:border-primary-dark focus:outline-none focus:ring-1 focus:ring-primary-dark peer"
               placeholder=" "
-              v-model="code"
+              v-model.trim="code"
             />
             <label
               for="discountCode"
