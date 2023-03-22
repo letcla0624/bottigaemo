@@ -31,6 +31,7 @@ https://letcla0624.github.io/bottigaemo/
 - Naive UI
 - Pinia
 - Restful API
+- SCSS
 - Swiper 9
 - Tailwind CSS 3
 - Tw City Selector
@@ -41,4 +42,5 @@ https://letcla0624.github.io/bottigaemo/
 - Vue 3 Toastify
 - Vue LazyLoad
 - Vue Masonry
+- Vue Meta
 - Vue Router

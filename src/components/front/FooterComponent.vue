@@ -120,7 +120,7 @@ onMounted(() => {
               </li>
               <li class="p-4 my-4">
                 <n-notification-provider :max="1">
-                  <NotiComponent class="max-w-[300px]" />
+                  <NotiComponent />
                 </n-notification-provider>
               </li>
             </ul>

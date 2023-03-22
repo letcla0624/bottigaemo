@@ -1,5 +1,6 @@
 import { createApp } from "vue";
 import { createPinia } from "pinia";
+import { createMetaManager, defaultConfig } from "vue-meta";
 
 import App from "./App.vue";
 import router from "./router";
@@ -71,10 +72,38 @@ const i18n = createI18n({
   },
 });
 
+// vue-meta 設定
+const metaManager = createMetaManager(!!import.meta.env.SSR, {
+  ...defaultConfig,
+  ...{
+    keywords: {
+      tag: "meta",
+      keyAttribute: "name",
+      valueAttribute: "content",
+    },
+    description: {
+      tag: "meta",
+      keyAttribute: "name",
+      valueAttribute: "content",
+    },
+    author: {
+      tag: "meta",
+      keyAttribute: "name",
+      valueAttribute: "content",
+    },
+    "apple-mobile-web-app-capable": {
+      tag: "meta",
+      keyAttribute: "name",
+      valueAttribute: "content",
+    },
+  },
+});
+
 const app = createApp(App);
 
 app.use(createPinia());
 app.use(router);
+app.use(metaManager);
 app.use(naive);
 app.use(LottieAnimation);
 app.use(VueMasonryPlugin);
@@ -89,4 +118,5 @@ app.component("VForm", Form);
 app.component("VField", Field);
 app.component("ErrorMessage", ErrorMessage);
 
+await router.isReady();
 app.mount("#app");
