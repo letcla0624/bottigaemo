@@ -34,7 +34,7 @@ export const useModelsStore = defineStore("models", () => {
         },
         {
           id: "3",
-          title: "瑪格·夸利包",
+          title: "瑪格奎利後背包",
           enTitle: "MARG QUALLY Backpack",
           imgUrl:
             "https://storage.googleapis.com/vue-course-api.appspot.com/letcla-fashion/1679155103606.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=iLjz4k%2BsXOKT9m2iUt0VqiVx3sPchDZldaJr4p3wyj1IjGhWu6M4D8FikH%2BXBVdHpOVAPFLi0%2BMo5o%2Bh9y92pO76VDAeklHgTKW66cWcdzb8VBf7h6NYRrGGBrVCIykT%2F4gnjGjrj7clzTDFlrdouz0m%2F1l%2F2Wtc%2BVFOvYPfOCxNqTenFTu7MlSLaQAde4sojLULpYWhBqOVd09NhKNo8kaK3DU8AZWceaQV8L%2B%2BFifefOPVisVzlvECW1DJ2a0DY7tfa%2BN78LYVPQF%2BOuKsb0UlrfIZvgM57v0a1TcNa7Fx1Q7J8nQyWosAeIgrjhTjTXx6rsB1T8LApWnnTPBuyA%3D%3D",
@@ -152,7 +152,7 @@ export const useModelsStore = defineStore("models", () => {
         },
         {
           id: "2",
-          title: "BAGUETTE 草帽",
+          title: "幻想稻草帽",
           enTitle: "FANTASY STRAW & RIBBON",
           imgUrl:
             "https://storage.googleapis.com/vue-course-api.appspot.com/letcla-fashion/1679155557348.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=Upk%2B9rKI6IdsQ9izZKDlMTs6bWNNDPTIcIWlf0r61Kz83uF%2Fg1lPdtFG1c9qXx9kkJ3VhR6QIU5YqYBOOzunKvU9FuWEP%2B3F%2FBYRqOUNSJp2iyCwk6AjbIgQPhtEbuHEzWxoGQfM6I1JPJLf1FMSzmhmHT%2Fk2Qyq3YHdKZujIdF2Epp7hlYlO8nyipJHtxGWN9Aq9dh0Psn2hNrL2GTpK64iNx5vZk6EACYlPm3TClCsAMfaCjqF8Vvh%2FIBdaOXG1iU2O9PenCqW53wg4HlBh4BM2u%2Fv7evvb6D9%2Bm1eexy5xOTIc3gmFMCoOzdQpRMpt%2BhczZYJ3T7GBlptZr4WoA%3D%3D",

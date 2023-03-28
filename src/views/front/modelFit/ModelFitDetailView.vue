@@ -44,7 +44,7 @@ const metaData = reactive({
   <div>
     <MetaComponent :meta-data="metaData" :localLang="localLang" />
     <div class="modelFitDEtail mt-16 sm:mt-0">
-      <div class="grid grid-cols-1 lg:grid-cols-2">
+      <div class="grid grid-cols-1 md:grid-cols-2">
         <div class="lg:h-screen lg:sticky top-0">
           <video
             class="w-full h-full object-cover"
@@ -58,7 +58,7 @@ const metaData = reactive({
             <source :src="model.video" type="video/mp4" />
           </video>
         </div>
-        <div class="bg-white px-3 py-5 md:p-10 3xl:px-40">
+        <div class="bg-white px-3 py-5 md:p-10 md:pt-20 lg:pt-5 3xl:px-40">
           <div
             class="font-bodoni uppercase lg:mt-20 mb-10 py-3 border-b-4 border-primary-dark"
           >
@@ -77,7 +77,7 @@ const metaData = reactive({
               v-masonry-tile
               v-for="fit in model.fits"
               :key="fit"
-              class="item w-1/2 p-3 mb-7"
+              class="item w-1/2 p-3 mb-0 2xl:mb-7"
             >
               <div class="w-full overflow-hidden relative img-cover">
                 <RouterLink :to="`/prod/${fit.link}`">
@@ -87,7 +87,7 @@ const metaData = reactive({
                     class="w-full transition duration-300"
                   />
                   <div
-                    class="w-full h-full bg-white/90 hidden justify-center items-center absolute top-0 left-0 img-mask hover:visible transition duration-300"
+                    class="w-full h-full bg-white/90 opacity-0 flex justify-center items-center absolute top-0 left-0 img-mask hover:opacity-100 transition duration-300"
                   >
                     <PlusIcon class="w-4 h-4 inline stroke-2 mr-1" />
                     {{ $t("more") }}

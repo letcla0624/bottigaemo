@@ -67,7 +67,7 @@ onMounted(() => {
     <router-view
       v-if="isRouterAlive"
       v-slot="{ Component }"
-      class="relative main bg-white min-h-screen"
+      class="relative main bg-white lg:min-h-screen"
       :key="key"
     >
       <transition name="fadeIn" mode="out-in">

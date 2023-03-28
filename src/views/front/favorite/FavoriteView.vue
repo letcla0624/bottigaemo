@@ -116,7 +116,7 @@ const metaData = reactive({
                   {{ $t("removeFavorites") }}
                 </n-tooltip>
               </div>
-              <div class="md:bg-neutral-100 p-2 md:py-4">
+              <div class="md:bg-neutral-100 p-3 md:p-4">
                 <div
                   class="flex flex-col md:flex-row justify-between items-center"
                 >
