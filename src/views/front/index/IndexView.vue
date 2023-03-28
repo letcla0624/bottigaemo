@@ -1,4 +1,6 @@
 <script setup>
+import { reactive } from "vue";
+import MetaComponent from "@/components/front/MetaComponent.vue";
 import IndexBannerComponent from "@/components/front/index/IndexBannerComponent.vue";
 import BlogComponent from "@/components/front/index/ArticleComponent.vue";
 import FiftyComponent from "@/components/front/index/FiftyComponent.vue";
@@ -9,14 +11,27 @@ import { ChevronDoubleDownIcon } from "@heroicons/vue/24/outline";
 
 import { storeToRefs } from "pinia";
 import { useModelsStore } from "@/stores/models.js";
+import { useChangeLangStore } from "@/stores/changeLangStore.js";
+
+// pinia language
+const changeLangStore = useChangeLangStore();
+const { localLang } = storeToRefs(changeLangStore);
 
 const modelsStore = useModelsStore();
 const { modelId } = storeToRefs(modelsStore);
 modelId.value = 1;
+
+// 設定 meta
+const metaData = reactive({
+  title: "Bottigaemo - 官方網站",
+  enTitle: "Bottigaemo - Official Website",
+  url: `${import.meta.env.VITE_APP_URL}/#/`,
+});
 </script>
 
 <template>
   <div class="index">
+    <MetaComponent :meta-data="metaData" :localLang="localLang" />
     <section>
       <div class="relative">
         <IndexBannerComponent />

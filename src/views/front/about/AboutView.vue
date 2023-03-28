@@ -1,6 +1,7 @@
 <script setup>
-import { ref, onMounted, inject } from "vue";
+import { ref, reactive, onMounted, inject } from "vue";
 import LoadingComponent from "@/components/LoadingComponent.vue";
+import MetaComponent from "@/components/front/MetaComponent.vue";
 import gsap from "gsap";
 
 import { storeToRefs } from "pinia";
@@ -39,10 +40,18 @@ onMounted(() => {
 
   animateMarquee();
 });
+
+// 設定 meta
+const metaData = reactive({
+  title: "關於藍洛琳·塔詩·娜潔的故事 | Bottigaemo",
+  enTitle: "About Lanlorine Tashih NaChieh's history | Bottigaemo",
+  url: `${import.meta.env.VITE_APP_URL}/#/about`,
+});
 </script>
 
 <template>
   <div class="about">
+    <MetaComponent :meta-data="metaData" :localLang="localLang" />
     <LoadingComponent v-if="isLoading" />
     <div v-else>
       <div

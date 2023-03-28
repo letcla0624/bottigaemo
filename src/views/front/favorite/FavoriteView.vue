@@ -2,6 +2,7 @@
 import { ref, reactive, onMounted } from "vue";
 import LoadingComponent from "@/components/LoadingComponent.vue";
 import RemoveFavoriteModal from "@/components/modal/RemoveFavoriteModal.vue";
+import MetaComponent from "@/components/front/MetaComponent.vue";
 import { NTooltip } from "naive-ui";
 import { toThousands } from "@/composable/toThousands.js";
 import {
@@ -39,10 +40,18 @@ const openDelModal = (prod) => {
 onMounted(() => {
   getFavoriteProds();
 });
+
+// 設定 meta
+const metaData = reactive({
+  title: "收藏清單 | Bottigaemo",
+  enTitle: "Wishlist | Bottigaemo",
+  url: `${import.meta.env.VITE_APP_URL}/#/favorite`,
+});
 </script>
 
 <template>
-  <div class="">
+  <div>
+    <MetaComponent :meta-data="metaData" :localLang="localLang" />
     <LoadingComponent v-if="isLoading" />
     <div v-else class="container px-2">
       <div

@@ -1,8 +1,10 @@
 <script setup>
+import { reactive } from "vue";
 import { NTabs, NTabPane } from "naive-ui";
 import PrivacyComponent from "@/components/front/law/PrivacyComponent.vue";
 import TermsComponent from "@/components/front/law/TermsComponent.vue";
 import FaqComponent from "@/components/front/law/FaqComponent.vue";
+import MetaComponent from "@/components/front/MetaComponent.vue";
 
 import { storeToRefs } from "pinia";
 import { useChangeLangStore } from "@/stores/changeLangStore.js";
@@ -10,10 +12,18 @@ import { useChangeLangStore } from "@/stores/changeLangStore.js";
 // pinia language
 const changeLangStore = useChangeLangStore();
 const { localLang } = storeToRefs(changeLangStore);
+
+// 設定 meta
+const metaData = reactive({
+  title: "常見問題 & 法律條款 | Bottigaemo",
+  enTitle: "FAQ & Legal Terms | Bottigaemo",
+  url: `${import.meta.env.VITE_APP_URL}/#/privacy`,
+});
 </script>
 
 <template>
   <div class="pt-[72px]">
+    <MetaComponent :meta-data="metaData" :localLang="localLang" />
     <div class="md:pb-10">
       <n-tabs
         default-value="privacy"

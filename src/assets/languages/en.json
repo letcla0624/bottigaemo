@@ -100,6 +100,6 @@
   "discountCode": "Discount code",
   "submit": "Submit",
   "noticeMessage": "Click Me Have Special Time!",
-  "meta-description": "Disclaimer: This is an e-commerce website developed as a frontend practice project using Vue 3 and Vite, and is not intended for commercial or business purposes. All images and multimedia materials are sourced from official websites or free image libraries and remain the property of their respective brands. If you choose to extract any materials from this website, you do so at your own risk and assume all legal liability.",
+  "meta-description": "This is an e-commerce website developed as a frontend practice project using Vue 3 and Vite, and is not intended for commercial or business purposes. All images and multimedia materials are sourced from official websites or free image libraries and remain the property of their respective brands. If you choose to extract any materials from this website, you do so at your own risk and assume all legal liability.",
   "meta-keywords": "Vue 3,Vite,practice project,e-commerce,e-commerce website,Bottigaemo"
 }

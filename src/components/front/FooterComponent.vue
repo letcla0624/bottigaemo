@@ -1,7 +1,7 @@
 <script setup>
 import { ref, inject, defineEmits, onMounted } from "vue";
 import { NEllipsis } from "naive-ui";
-import NotiComponent from "../NotiComponent.vue";
+import NotiComponent from "@/components/front/NotiComponent.vue";
 import {
   CreditCardIcon,
   TruckIcon,
@@ -156,7 +156,7 @@ onMounted(() => {
 </template>
 <style lang="scss" scoped>
 .has-animation {
-  padding-bottom: calc(722px);
+  padding-bottom: calc(726.5px);
   @media screen and (max-width: 1023px) {
     padding-bottom: 0 !important;
   }

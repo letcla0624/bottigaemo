@@ -1,7 +1,7 @@
 <script setup>
 import { inject } from "vue";
 import HeartFillComponent from "@/components/svgPath/HeartFillComponent.vue";
-import LoveComponent from "@/components/LoveComponent.vue";
+import LoveComponent from "@/components/front/LoveComponent.vue";
 import { toThousands } from "@/composable/toThousands.js";
 import { PlusIcon, HeartIcon } from "@heroicons/vue/24/outline";
 

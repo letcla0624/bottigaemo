@@ -20,7 +20,7 @@ const noticeMessage = () => {
 
   notification.create({
     title: "Bottigaemo VIP",
-    description: "From the Bottigaemo Offical",
+    description: "From the Bottigaemo Official",
     content: content,
     avatar: () =>
       h(NAvatar, {

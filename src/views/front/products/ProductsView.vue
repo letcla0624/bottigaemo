@@ -1,9 +1,10 @@
 <script setup>
 import { ref, reactive, inject, onMounted } from "vue";
 import LoadingComponent from "@/components/LoadingComponent.vue";
-import LoveComponent from "@/components/LoveComponent.vue";
+import LoveComponent from "@/components/front/LoveComponent.vue";
 import HeartFillComponent from "@/components/svgPath/HeartFillComponent.vue";
-import NoSearchComponent from "@/components/NoSearchComponent.vue";
+import NoSearchComponent from "@/components/front/NoSearchComponent.vue";
+import MetaComponent from "@/components/front/MetaComponent.vue";
 import { toThousands } from "@/composable/toThousands.js";
 
 import {
@@ -109,10 +110,18 @@ const init = () => {
 onMounted(() => {
   init();
 });
+
+// 設定 meta
+const metaData = reactive({
+  title: "全部產品 - 包、服飾、配件、香水、美妝 | Bottigaemo",
+  enTitle: `All Products - Bags, Clothing, Accessories, Perfume, Mockup | Bottigaemo`,
+  url: `${import.meta.env.VITE_APP_URL}/#/products`,
+});
 </script>
 
 <template>
   <div>
+    <MetaComponent :meta-data="metaData" :localLang="localLang" />
     <div class="pt-[72px] md:pt-0">
       <LoadingComponent v-if="isLoading" />
       <div v-else>
