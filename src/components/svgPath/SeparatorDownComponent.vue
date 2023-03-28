@@ -6,6 +6,7 @@ onMounted(() => {
   useSeparatorPath();
 });
 </script>
+
 <template>
   <svg
     class="separator separator-down"

@@ -65,6 +65,7 @@ onMounted(() => {
     });
 });
 </script>
+
 <template>
   <svg
     class="fixed pointer-events-none h-full z-50"

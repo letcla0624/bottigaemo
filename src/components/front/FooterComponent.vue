@@ -32,6 +32,7 @@ onMounted(() => {
   setLang();
 });
 </script>
+
 <template>
   <div :class="{ 'has-animation': detectWidth >= 1024 }">
     <footer
@@ -154,6 +155,7 @@ onMounted(() => {
     </footer>
   </div>
 </template>
+
 <style lang="scss" scoped>
 .has-animation {
   padding-bottom: calc(726.5px);

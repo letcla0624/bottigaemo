@@ -26,6 +26,7 @@ onMounted(() => {
   getProducts();
 });
 </script>
+
 <template>
   <div>
     <swiper

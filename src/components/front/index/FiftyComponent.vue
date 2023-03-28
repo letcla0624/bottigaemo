@@ -29,6 +29,7 @@ const data = [
 
 const items = reactive(data);
 </script>
+
 <template>
   <div class="h-screen text-center lg:flex justify-center items-start">
     <div

@@ -19,6 +19,7 @@ onMounted(() => {
   getArticles();
 });
 </script>
+
 <template>
   <div class="max-w-[1280px] mx-auto">
     <div
@@ -94,6 +95,7 @@ onMounted(() => {
     <ChevronRightIcon class="w-4 h-4 inline stroke-2 ml-1" />
   </RouterLink>
 </template>
+
 <style lang="scss">
 .date {
   position: relative;

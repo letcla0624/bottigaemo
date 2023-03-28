@@ -33,6 +33,7 @@ const props = defineProps({
   },
 });
 </script>
+
 <template>
   <div class="pl-2 md:pl-4">
     <swiper
@@ -124,4 +125,3 @@ const props = defineProps({
     </swiper>
   </div>
 </template>
-<style lang="scss"></style>

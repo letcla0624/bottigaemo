@@ -61,6 +61,7 @@ const metaData = reactive({
   url: `${import.meta.env.VITE_APP_URL}/#/model-fit`,
 });
 </script>
+
 <template>
   <div>
     <MetaComponent :meta-data="metaData" :localLang="localLang" />
