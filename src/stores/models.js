@@ -14,7 +14,7 @@ export const useModelsStore = defineStore("models", () => {
       bgcolor: "#0f1423",
       poster:
         "https://storage.googleapis.com/vue-course-api.appspot.com/letcla-fashion/1679155045826.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=axorXpRDsQpqcqOB8r5QyqIY26KVSg5I2%2BQII7OMVkWImBJCACJgcBMYq%2FLmBKNY%2FTWnDwCCWHdr3EFasaa2Khw%2F7LRX32LYzeCMIxbAXsyvqnuENsDevOaRnDiRCldDr4OSTKsOVPaWpQu6W5d4k7wAqWPJxw%2Bg81zTnowMvYShS4TkoVJJvxwO%2BE4NRXEs1MZR39Q40gP%2B1xhN%2BKfeTn1vKUvkzTw9WwTYFlOL5Mk2SozphJEbi%2BBw8muYaIvboGkveAsRBvfglrYi%2Bvw1NPv5jevzRPS%2BBCmyF1Mc2K8IeVCGA0rrgWQ4ZTiahOpLpoxA%2Bc26K%2F6TjhlPVRtNtA%3D%3D",
-      video: "/bottigaemo/video/model/model1.mp4",
+      video: "./video/model/model1.mp4",
       fits: [
         {
           id: "1",
@@ -140,7 +140,7 @@ export const useModelsStore = defineStore("models", () => {
       bgcolor: "#915937",
       poster:
         "https://storage.googleapis.com/vue-course-api.appspot.com/letcla-fashion/1679155516087.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=ZVZRtrtq6DnZgUfml5oiNw1fj8ekE%2FKpEp0BxSFgNXrBwcon1f737D2Ae4fV7aqxO3r4hNwyVWBOwi2pco%2BHCZMnwBG8BWRK4SbpgJEY2cThPDOso4L40AAn7nQ9rcsTtdQ513uWWbKN5FLt%2FTwPjgqkO73ZkEdjQJp7qkrbeWqCX6R4hVFagDzR5rSyaWjXT2RpfU5vHOtKK2ZDvu9GqirlXZhsJ%2Bb%2Fo2UfIpiPJJ1AqlVqMZ4BnphCNjmQ6wjbxMZvQnmw1KakiWzSb5uPoNkNnVxYVpCtNhh%2FvXAvzSXI75Xl9B5ktiz3h0rtWA3iV7xChxf%2BDpp0xMjTMgiDeA%3D%3D",
-      video: "/bottigaemo/video/model/model3.mp4",
+      video: "./video/model/model3.mp4",
       fits: [
         {
           id: "1",
