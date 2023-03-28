@@ -160,8 +160,8 @@ onMounted(() => {
         </div>
         <div class="border-b py-5">
           <div class="flex justify-between mb-3">
-            <h6 class="">{{ $t("subtotal") }}</h6>
-            <p class="">
+            <h6>{{ $t("subtotal") }}</h6>
+            <p>
               <template v-if="localLang === 'zh_TW'">
                 + NT$ {{ toThousands(cart.arr.total) }}
               </template>
@@ -171,8 +171,8 @@ onMounted(() => {
             </p>
           </div>
           <div class="flex justify-between mb-3">
-            <h6 class="">{{ $t("discount") }}</h6>
-            <p class="">
+            <h6>{{ $t("discount") }}</h6>
+            <p>
               <template v-if="localLang === 'zh_TW'">
                 - NT$ {{ toThousands(cart.arr.total - cart.arr.final_total) }}
               </template>
@@ -182,8 +182,8 @@ onMounted(() => {
             </p>
           </div>
           <div class="flex justify-between">
-            <h6 class="">{{ $t("shipping") }}</h6>
-            <p class="">{{ $t("free") }}</p>
+            <h6>{{ $t("shipping") }}</h6>
+            <p>{{ $t("free") }}</p>
           </div>
         </div>
         <div class="flex justify-between items-center py-4">

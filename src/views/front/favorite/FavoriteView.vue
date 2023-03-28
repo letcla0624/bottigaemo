@@ -128,7 +128,7 @@ const metaData = reactive({
                       {{ product.enTitle }}
                     </template>
                   </h2>
-                  <p class="">
+                  <p>
                     <template v-if="localLang === 'zh_TW'">
                       NT$ {{ toThousands(product.price) }}
                     </template>

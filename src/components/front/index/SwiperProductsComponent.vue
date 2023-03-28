@@ -78,7 +78,7 @@ onMounted(() => {
                   {{ topProduct.enTitle }}
                 </template>
               </h3>
-              <p class="">
+              <p>
                 <template v-if="localLang === 'zh_TW'">
                   NT$ {{ toThousands(topProduct.price) }}
                 </template>

@@ -321,7 +321,6 @@ const metaData = reactive({
       </div>
     </div>
     <n-drawer
-      class=""
       v-model:show="active"
       :placement="placement"
       :width="detectWidth < 502 ? `100%` : 502"

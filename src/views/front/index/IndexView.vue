@@ -71,7 +71,7 @@ const metaData = reactive({
         <BlogComponent />
       </div>
     </section>
-    <section class="">
+    <section>
       <AboutComponent />
     </section>
   </div>
