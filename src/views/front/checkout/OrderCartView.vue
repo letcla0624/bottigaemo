@@ -65,7 +65,7 @@ onMounted(() => {
             :key="cartItem.id"
             class="flex justify-between items-center mt-5"
           >
-            <router-link :to="`prod/${cartItem.product.id}`" class="w-2/3">
+            <RouterLink :to="`prod/${cartItem.product.id}`" class="w-2/3">
               <div class="flex items-center">
                 <n-badge :value="cartItem.qty" color="gray">
                   <div class="w-14 h-14 lg:w-20 lg:h-20 border overflow-hidden">
@@ -94,7 +94,7 @@ onMounted(() => {
                   </p>
                 </div>
               </div>
-            </router-link>
+            </RouterLink>
             <p class="w-1/3 text-right">
               <template v-if="localLang === 'zh_TW'">
                 NT$ {{ toThousands(cartItem.final_total) }}

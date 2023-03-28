@@ -79,7 +79,7 @@ const metaData = reactive({
               class="item w-1/2 p-3 mb-7"
             >
               <div class="w-full overflow-hidden relative img-cover">
-                <router-link :to="`/prod/${fit.link}`">
+                <RouterLink :to="`/prod/${fit.link}`">
                   <img
                     :src="fit.imgUrl"
                     :alt="fit.title"
@@ -91,7 +91,7 @@ const metaData = reactive({
                     <PlusIcon class="w-4 h-4 inline stroke-2 mr-1" />
                     {{ $t("more") }}
                   </div>
-                </router-link>
+                </RouterLink>
               </div>
               <h3 class="font-bold uppercase pt-3">
                 <template v-if="localLang === 'zh_TW'">
@@ -106,10 +106,10 @@ const metaData = reactive({
           <div
             class="text-center border-t-4 border-primary-dark pt-5 lg:pt-10 clear-both"
           >
-            <router-link to="/model-fit" class="text-bold hoverBar pb-1">
+            <RouterLink to="/model-fit" class="text-bold hoverBar pb-1">
               <ChevronLeftIcon class="w-4 h-4 inline stroke-2 mr-1" />
               {{ $t("returnToModelFashion") }}
-            </router-link>
+            </RouterLink>
           </div>
         </div>
       </div>

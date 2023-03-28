@@ -53,7 +53,7 @@ onMounted(() => {
         <div class="flex flex-col hoverBar">
           <a :href="topProduct.link">
             <div class="w-full overflow-hidden aspect-ratio-1-1">
-              <router-link :to="`prod/${topProduct.id}`">
+              <RouterLink :to="`prod/${topProduct.id}`">
                 <div class="w-full overflow-hidden relative img-cover">
                   <img
                     :src="topProduct.imageUrl"
@@ -67,7 +67,7 @@ onMounted(() => {
                     {{ $t("more") }}
                   </div>
                 </div>
-              </router-link>
+              </RouterLink>
             </div>
             <div class="p-5">
               <h3 class="text-lg overflow-hidden line-clamp-1 mb-1">
@@ -91,12 +91,12 @@ onMounted(() => {
         </div>
       </swiper-slide>
     </swiper>
-    <router-link
+    <RouterLink
       to="/products"
       class="btn btn-outline-dark border-white px-5 w-fit mx-auto hover:bg-white hover:text-primary-dark mt-10"
     >
       {{ $t("moreProducts") }}
       <ChevronRightIcon class="w-4 h-4 inline stroke-2 ml-1" />
-    </router-link>
+    </RouterLink>
   </div>
 </template>

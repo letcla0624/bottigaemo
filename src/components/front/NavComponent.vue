@@ -222,14 +222,14 @@ const openDelModal = (cartItem) => {
             Your shopping bag currently has no products.
           </template>
         </h3>
-        <router-link
+        <RouterLink
           to="/products"
           class="btn btn-dark md:w-1/3"
           @click="active = false"
         >
           <template v-if="localLang === 'zh_TW'"> 前往購物 </template>
           <template v-else-if="localLang === 'en'"> Go shopping </template>
-        </router-link>
+        </RouterLink>
       </div>
       <ul v-else>
         <li
@@ -238,7 +238,7 @@ const openDelModal = (cartItem) => {
           class="py-4 border-b"
         >
           <div class="flex items-center">
-            <router-link
+            <RouterLink
               :to="`/prod/${cartItem.product.id}`"
               @click="active = false"
             >
@@ -249,10 +249,10 @@ const openDelModal = (cartItem) => {
                   class="object-cover max-w-[80px] h-full"
                 />
               </div>
-            </router-link>
+            </RouterLink>
             <div class="w-full pl-3">
               <div class="flex justify-between items-start mb-3">
-                <router-link
+                <RouterLink
                   :to="`/prod/${cartItem.product.id}`"
                   @click="active = false"
                 >
@@ -267,7 +267,7 @@ const openDelModal = (cartItem) => {
                   <p v-if="cartItem.setSize" class="text-xs">
                     {{ cartItem.setSize }}
                   </p>
-                </router-link>
+                </RouterLink>
                 <n-tooltip trigger="hover">
                   <template #trigger>
                     <button
@@ -421,7 +421,7 @@ const openDelModal = (cartItem) => {
       position: relative;
       opacity: 0.6;
 
-      &.router-link-exact-active,
+      &.RouterLink-exact-active,
       &:hover {
         transform: scale(1.2);
         color: var(--color-primary-dark);

@@ -39,6 +39,7 @@
   "filters": "Filters",
   "delete": "Delete",
   "choose": "Choose one",
+  "full": "* The shopping bag for this item is already full.",
   "notice": "* Notice: If you choose a different size or color, please complete your purchase before placing your order again, otherwise the last selected option will be the primary item shipped.",
   "addToBag": "Add to bag",
   "sizeChart": "Size chart",

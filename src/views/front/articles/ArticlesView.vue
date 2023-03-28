@@ -131,7 +131,7 @@ const metaData = reactive({
             :key="article.title"
           >
             <div class="m-2 mb-4">
-              <router-link :to="`article-detail/${article.id}`">
+              <RouterLink :to="`article-detail/${article.id}`">
                 <div class="w-full overflow-hidden relative img-cover">
                   <img
                     :src="article.imageUrl"
@@ -168,7 +168,7 @@ const metaData = reactive({
                     by <span class="uppercase"> {{ article.author }} </span>
                   </p>
                 </div>
-              </router-link>
+              </RouterLink>
             </div>
           </div>
         </div>

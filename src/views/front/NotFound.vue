@@ -42,9 +42,9 @@ onMounted(() => {
           </h1>
           <p class="text-xl text-black/40 tracking-wide">{{ $t("404") }}</p>
         </div>
-        <router-link to="/" class="btn btn-dark">
+        <RouterLink to="/" class="btn btn-dark">
           {{ $t("backToHome") }}
-        </router-link>
+        </RouterLink>
       </div>
     </div>
   </div>

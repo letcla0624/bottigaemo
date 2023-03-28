@@ -79,7 +79,7 @@ const setupReveal = (container) => {
       <div
         class="text-white mix-blend-difference -translate-y-1/3 lg:-translate-y-1/2"
       >
-        <router-link to="/about">
+        <RouterLink to="/about">
           <h2
             class="text-5xl sm:text-8xl md:text-[8rem] lg:text-[10rem] xl:text-[14rem] 2xl:text-[20rem] font-bold font-bodoni tracking-tightest mb-3 sm:mb-8 lg:mb-10 xl:mb-14"
           >
@@ -90,7 +90,7 @@ const setupReveal = (container) => {
           >
             － {{ $t("history") }} －
           </p>
-        </router-link>
+        </RouterLink>
       </div>
     </div>
   </div>

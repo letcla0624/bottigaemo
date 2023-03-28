@@ -45,24 +45,24 @@ onMounted(() => {
       <div class="container mx-auto">
         <ul class="md:flex justify-center items-center">
           <li class="p-4 m-4">
-            <router-link to="/" class="uppercase">
+            <RouterLink to="/" class="uppercase">
               {{ $t("menu.index") }}
-            </router-link>
+            </RouterLink>
           </li>
           <li class="p-4 m-4">
-            <router-link to="/products" class="uppercase">
+            <RouterLink to="/products" class="uppercase">
               {{ $t("menu.products") }}
-            </router-link>
+            </RouterLink>
           </li>
           <li class="p-4 m-4">
-            <router-link to="/articles" class="uppercase">
+            <RouterLink to="/articles" class="uppercase">
               {{ $t("menu.articles") }}
-            </router-link>
+            </RouterLink>
           </li>
           <li class="p-4 m-4">
-            <router-link to="/about" class="uppercase">
+            <RouterLink to="/about" class="uppercase">
               {{ $t("menu.aboutUs") }}
-            </router-link>
+            </RouterLink>
           </li>
         </ul>
       </div>
@@ -116,7 +116,7 @@ onMounted(() => {
           <div class="md:flex justify-between items-center">
             <ul class="md:flex justify-center items-center">
               <li class="p-4 my-4">
-                <router-link to="/privacy">{{ $t("privacy") }}</router-link>
+                <RouterLink to="/privacy">{{ $t("privacy") }}</RouterLink>
               </li>
               <li class="p-4 my-4">
                 <n-notification-provider :max="1">

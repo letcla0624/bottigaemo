@@ -229,7 +229,7 @@ const metaData = reactive({
             :key="product.title"
             class="bg-neutral-100"
           >
-            <router-link :to="`prod/${product.id}`">
+            <RouterLink :to="`prod/${product.id}`">
               <div
                 class="w-full overflow-hidden relative img-cover pb-3 md:py-10"
               >
@@ -293,7 +293,7 @@ const metaData = reactive({
                   </p>
                 </div>
               </div>
-            </router-link>
+            </RouterLink>
           </div>
           <div
             class="col-start-1 col-end-3 row-start-7 row-end-9 md:col-start-2 md:col-end-4 md:row-start-1 md:row-end-3 lg:col-start-3 lg:col-end-5 2xl:col-start-4 2xl:col-end-6 lg:row-start-1 lg:row-end-3 overflow-hidden bigPic"

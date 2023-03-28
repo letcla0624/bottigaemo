@@ -90,13 +90,13 @@ const metaData = reactive({
               </div>
               <div class="xl:col-span-2">
                 <Tilt :options="options">
-                  <router-link :to="`fit-detail/${item.id}`">
+                  <RouterLink :to="`fit-detail/${item.id}`">
                     <img
                       :src="item.imgURL"
                       :alt="item.title"
                       class="w-9/12 mx-auto"
                     />
-                  </router-link>
+                  </RouterLink>
                 </Tilt>
               </div>
               <div
@@ -121,13 +121,13 @@ const metaData = reactive({
                     {{ item.enDescription }}
                   </template>
                 </p>
-                <router-link
+                <RouterLink
                   :to="`fit-detail/${item.id}`"
                   class="text-gray-600 flex items-center w-fit hoverBar"
                 >
                   <PlusSmallIcon class="w-4 h-4 inline stroke-2 mr-1" />
                   {{ $t("watchDetail") }}
-                </router-link>
+                </RouterLink>
               </div>
             </div>
           </swiper-slide>

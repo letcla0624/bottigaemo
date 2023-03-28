@@ -62,17 +62,17 @@ const metaData = reactive({
         <h2 class="text-base md:text-2xl tracking-wide mt-3 mb-10">
           {{ $t("favoriteItems") }}
         </h2>
-        <router-link to="products" class="btn btn-dark">
+        <RouterLink to="products" class="btn btn-dark">
           {{ $t("moreProducts") }}
           <ChevronRightIcon class="w-4 h-4 inline stroke-2 ml-1" />
-        </router-link>
+        </RouterLink>
       </div>
       <div v-else class="pt-[72px]">
         <div class="flex justify-between items-center py-4">
-          <router-link to="products" class="btn btn-outline-dark">
+          <RouterLink to="products" class="btn btn-outline-dark">
             {{ $t("moreProducts") }}
             <ChevronRightIcon class="w-4 h-4 inline stroke-2 ml-1" />
-          </router-link>
+          </RouterLink>
           <p class="text-black/50">
             <template v-if="localLang === 'zh_TW'">
               共 {{ tempFavoriteProds.arr.length }} 件商品
@@ -88,7 +88,7 @@ const metaData = reactive({
             :key="product.title"
             class="bg-neutral-100"
           >
-            <router-link :to="`prod/${product.id}`">
+            <RouterLink :to="`prod/${product.id}`">
               <div
                 class="w-full overflow-hidden relative img-cover pb-3 md:py-10"
               >
@@ -138,7 +138,7 @@ const metaData = reactive({
                   </p>
                 </div>
               </div>
-            </router-link>
+            </RouterLink>
           </div>
         </div>
       </div>

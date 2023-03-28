@@ -149,13 +149,13 @@ const metaData = reactive({
             ></div>
           </template>
         </div>
-        <router-link
+        <RouterLink
           to="/articles"
           class="flex items-center w-fit mx-auto hoverBar p-1"
         >
           <ArrowUturnLeftIcon class="w-4 h-4 inline stroke-2 mr-1" />
           {{ $t("returnToArticles") }}
-        </router-link>
+        </RouterLink>
       </div>
     </div>
   </div>

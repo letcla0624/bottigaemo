@@ -15,6 +15,9 @@ export const useFrontCartStore = defineStore("frontCart", () => {
   const enTotal = ref(0);
   const loadingCart = ref(false);
   const localLang = ref("");
+  // const inStock = ref(0);
+  // const productQty = ref(0);
+  const newCartArr = ref([]);
 
   localLang.value = localStorage.getItem("language");
 
@@ -81,6 +84,24 @@ export const useFrontCartStore = defineStore("frontCart", () => {
       loadingCart.value = false;
       cart.arr = res.data.data;
       cartsTotal.value = sumCartsTotal(cart.arr.carts);
+
+      // 商品數量有沒有大於限定數量
+      const overStock = ref(false);
+      if (cart.arr.total !== 0) {
+        const productArr = cart.arr.carts.map((item) => {
+          item.product.in_stock - item.qty > 0
+            ? (overStock.value = false)
+            : (overStock.value = true);
+
+          return {
+            productId: item.product.id,
+            overStock: overStock.value,
+          };
+        });
+        newCartArr.value = [...new Set(productArr)];
+      } else {
+        newCartArr.value = [];
+      }
 
       // 計算美金總價格
       const priceArr = reactive({ arr: [] });
@@ -220,5 +241,6 @@ export const useFrontCartStore = defineStore("frontCart", () => {
     enTotal,
     code,
     useCoupon,
+    newCartArr,
   };
 });

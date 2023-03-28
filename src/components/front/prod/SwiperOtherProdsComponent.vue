@@ -60,7 +60,7 @@ const props = defineProps({
         :key="product.title"
       >
         <div class="flex flex-col">
-          <router-link :to="`/prod/${product.id}`">
+          <RouterLink :to="`/prod/${product.id}`">
             <div class="w-full overflow-hidden relative img-cover">
               <img
                 :src="product.imageUrl"
@@ -68,7 +68,7 @@ const props = defineProps({
                 class="w-full transition duration-300 aspect-ratio-1-1 object-cover hover:scale-125"
               />
               <div
-                class="w-full h-full bg-neutral-100/90 hidden justify-center items-center absolute top-0 left-0 img-mask hover:visible transition duration-300"
+                class="w-full h-full bg-neutral-100/90 opacity-0 flex justify-center items-center absolute top-0 left-0 img-mask hover:opacity-100 transition duration-300"
               >
                 <PlusIcon class="w-4 h-4 inline stroke-2 mr-1" />
                 {{ $t("more") }}
@@ -118,7 +118,7 @@ const props = defineProps({
                 </template>
               </p>
             </div>
-          </router-link>
+          </RouterLink>
         </div>
       </swiper-slide>
     </swiper>

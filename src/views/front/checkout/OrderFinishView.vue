@@ -94,9 +94,9 @@ onMounted(() => {
           </div>
         </div>
         <div class="md:relative bottom-5 w-full flex justify-center my-10">
-          <router-link to="/" class="btn btn-dark w-full sm:w-fit px-20">
+          <RouterLink to="/" class="btn btn-dark w-full sm:w-fit px-20">
             {{ $t("backToHome") }}
-          </router-link>
+          </RouterLink>
         </div>
       </div>
     </div>

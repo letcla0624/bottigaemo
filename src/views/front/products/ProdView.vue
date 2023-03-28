@@ -1,5 +1,5 @@
 <script setup>
-import { ref, reactive, onMounted, inject } from "vue";
+import { ref, reactive, onMounted, inject, watch } from "vue";
 import { useRoute } from "vue-router";
 import axios from "axios";
 import LoadingComponent from "@/components/LoadingComponent.vue";
@@ -30,8 +30,8 @@ import { useChangeLangStore } from "@/stores/changeLangStore.js";
 
 // pinia cart
 const frontCartStore = useFrontCartStore();
-const { loadingCart } = storeToRefs(frontCartStore);
-const { addToCart } = frontCartStore;
+const { newCartArr, loadingCart } = storeToRefs(frontCartStore);
+const { getCarts, addToCart } = frontCartStore;
 
 // pinia favorite
 const frontFavoriteStore = useFrontFavoriteStore();
@@ -119,8 +119,42 @@ const startFavoriteAnimFn = (id) => {
   }, 1200);
 };
 
-onMounted(() => {
-  getProduct();
+let tempCart = reactive({ arr: [] });
+const overStock = ref(false);
+const resultIndex = ref(0);
+
+// 判斷此商品有沒有在購物車裡
+const init = () => {
+  if (tempCart.arr.length !== 0) {
+    tempCart.arr = [...newCartArr.value];
+
+    resultIndex.value = tempCart.arr
+      .map((item) => {
+        return item.productId;
+      })
+      .indexOf(route.params.id);
+
+    overStock.value = tempCart.arr[resultIndex.value]?.overStock;
+  }
+};
+
+// 監聽 cart 單一產品的數量有沒有大於限定數量
+watch(newCartArr, (newVal) => {
+  if (newVal.length !== 0) {
+    resultIndex.value = newVal
+      .map((item) => item.productId)
+      .indexOf(route.params.id);
+
+    overStock.value = newVal[resultIndex.value]?.overStock;
+  } else {
+    overStock.value = false;
+  }
+});
+
+onMounted(async () => {
+  await getProduct();
+  await getCarts();
+  await init();
 });
 
 // 設定 meta
@@ -280,9 +314,9 @@ const metaData = reactive({
                       defaultQty();
                     "
                     :disabled="
-                      product.obj.setSize
+                      (product.obj.setSize
                         ? setSize === '' || loadingCart === true
-                        : loadingCart === true
+                        : loadingCart === true) || overStock === true
                     "
                   >
                     <svg
@@ -309,6 +343,12 @@ const metaData = reactive({
                     {{ $t("addToBag") }}
                   </button>
                 </div>
+                <p
+                  v-if="overStock"
+                  class="text-right text-xs text-red-500 mt-1"
+                >
+                  <b>{{ $t("full") }}</b>
+                </p>
                 <p
                   v-if="product.obj.setSize"
                   class="text-xs text-black/50 my-3"

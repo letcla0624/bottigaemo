@@ -80,7 +80,7 @@ const items = reactive(data);
           class="intro-title mix-blend-difference font-bodoni text-center leading-none"
           v-html="item.title"
         ></h2>
-        <router-link
+        <RouterLink
           :to="`/prod/${item.link}`"
           class="relative inline-block z-10 mt-7"
         >
@@ -92,7 +92,7 @@ const items = reactive(data);
               {{ item.subEnTitle }}
             </template>
           </span>
-        </router-link>
+        </RouterLink>
       </div>
       <div class="w-full h-full absolute bg-white/5 z-0"></div>
       <video

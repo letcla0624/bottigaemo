@@ -125,7 +125,7 @@ onMounted(() => {
     <div class="my-10 hidden md:block">
       <div class="text-center my-5">
         <h1 class="font-bodoni text-3xl md:text-5xl tracking-tighter">
-          <router-link to="/"> <em>Bottiga</em>emo </router-link>
+          <RouterLink to="/"> <em>Bottiga</em>emo </RouterLink>
         </h1>
       </div>
       <ul class="list-unstyled flex items-center justify-center text-xs">

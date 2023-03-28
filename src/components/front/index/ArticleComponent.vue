@@ -32,13 +32,13 @@ onMounted(() => {
       >
         <div class="relative px-[2em]">
           <div class="w-full overflow-hidden aspect-ratio-9-16">
-            <router-link :to="`/article-detail/${article.id}`">
+            <RouterLink :to="`/article-detail/${article.id}`">
               <img
                 :src="article.imageUrl"
                 alt="article.title"
                 class="transform duration-300 hover:scale-125 object-cover"
               />
-            </router-link>
+            </RouterLink>
           </div>
 
           <div
@@ -79,20 +79,20 @@ onMounted(() => {
             {{ article.enDescription }}
           </template>
         </p>
-        <router-link
+        <RouterLink
           :to="`/article-detail/${article.id}`"
           class="text-gray-600 flex items-center w-fit hoverBar"
         >
           <PlusSmallIcon class="w-4 h-4 inline stroke-2 mr-1" />
           <span class="border-b border-primary-dark"> {{ $t("more") }} </span>
-        </router-link>
+        </RouterLink>
       </div>
     </div>
   </div>
-  <router-link to="/articles" class="btn btn-outline-dark px-5 w-fit mx-auto">
+  <RouterLink to="/articles" class="btn btn-outline-dark px-5 w-fit mx-auto">
     {{ $t("moreArticles") }}
     <ChevronRightIcon class="w-4 h-4 inline stroke-2 ml-1" />
-  </router-link>
+  </RouterLink>
 </template>
 <style lang="scss">
 .date {

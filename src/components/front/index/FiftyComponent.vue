@@ -39,7 +39,7 @@ const items = reactive(data);
         background: `url(${item.bgURL}) 50% 50% no-repeat`,
       }"
     >
-      <router-link
+      <RouterLink
         :to="item.link"
         class="w-full h-full flex flex-col justify-center items-center"
       >
@@ -56,7 +56,7 @@ const items = reactive(data);
             <span class="uppercase">{{ item.subEnTitle }}</span>
           </template>
         </p>
-      </router-link>
+      </RouterLink>
     </div>
   </div>
 </template>
