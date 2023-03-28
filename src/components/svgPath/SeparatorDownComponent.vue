@@ -24,5 +24,3 @@ onMounted(() => {
     </slot>
   </svg>
 </template>
-
-<style lang=""></style>

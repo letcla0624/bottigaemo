@@ -60,5 +60,3 @@ const items = reactive(data);
     </div>
   </div>
 </template>
-
-<style lang=""></style>

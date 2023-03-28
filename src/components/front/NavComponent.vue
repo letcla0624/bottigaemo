@@ -106,7 +106,7 @@ const openDelModal = (cartItem) => {
 
 <template>
   <header
-    class="fixed top-0 w-full flex justify-between items-center px-2 md:px-4 py-4 z-50 transition-all duration-500"
+    class="fixed top-0 w-screen flex justify-between items-center px-2 md:px-4 py-4 z-50 transition-all duration-500"
     :class="{ 'bg-white/90': windowScrollTop > 0 }"
     ref="navBar"
   >
@@ -118,8 +118,8 @@ const openDelModal = (cartItem) => {
       :disabled="menuDisabled"
     >
       <span class="text-sm mr-2 hidden sm:inline">
-        <span v-show="!isOpenMenu"> {{ $t("menu") }} </span>
-        <span v-show="isOpenMenu"> {{ $t("close") }} </span>
+        <span v-show="!isOpenMenu"></span>
+        <span v-show="isOpenMenu"></span>
       </span>
       <span class="nav-navIcon">
         <span class="nav-navIcon-line"></span>
@@ -184,16 +184,11 @@ const openDelModal = (cartItem) => {
         </RouterLink>
       </li>
       <li class="ml-6 sm:ml-16">
-        <n-tooltip trigger="hover">
-          <template #trigger>
-            <button type="button" @click="activate('right')">
-              <n-badge :value="cartsTotal" :max="10" color="black">
-                <ShoppingBagIcon class="iconHover w-6 h-6" />
-              </n-badge>
-            </button>
-          </template>
-          {{ $t("menu.myCart") }}
-        </n-tooltip>
+        <button type="button" @click="activate('right')">
+          <n-badge :value="cartsTotal" :max="10" color="black">
+            <ShoppingBagIcon class="iconHover w-6 h-6" />
+          </n-badge>
+        </button>
       </li>
     </ul>
   </header>
@@ -201,9 +196,8 @@ const openDelModal = (cartItem) => {
   <n-drawer
     v-model:show="active"
     :placement="placement"
-    :width="detectWidth < 502 ? `100%` : 502"
+    :width="detectWidth < 502 ? `90%` : 502"
     :z-index="2010"
-    resizable
   >
     <n-drawer-content closable>
       <template #header>
@@ -244,7 +238,10 @@ const openDelModal = (cartItem) => {
           class="py-4 border-b"
         >
           <div class="flex items-center">
-            <router-link :to="`/prod/${cartItem.product.id}`">
+            <router-link
+              :to="`/prod/${cartItem.product.id}`"
+              @click="active = false"
+            >
               <div class="w-20 h-20">
                 <img
                   :src="cartItem.product.imageUrl"
@@ -255,7 +252,10 @@ const openDelModal = (cartItem) => {
             </router-link>
             <div class="w-full pl-3">
               <div class="flex justify-between items-start mb-3">
-                <router-link :to="`/prod/${cartItem.product.id}`">
+                <router-link
+                  :to="`/prod/${cartItem.product.id}`"
+                  @click="active = false"
+                >
                   <h3 class="font-bold line-clamp-1 hoverBar">
                     <template v-if="localLang === 'zh_TW'">
                       {{ cartItem.product.title }}
@@ -298,7 +298,7 @@ const openDelModal = (cartItem) => {
                     {{ i }}
                   </option>
                 </select>
-                <p>
+                <p class="text-right">
                   <template v-if="localLang === 'zh_TW'">
                     NT$ {{ toThousands(cartItem.total) }}
                   </template>

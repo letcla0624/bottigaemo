@@ -1,3 +1,4 @@
+/* global process */
 import { fileURLToPath, URL } from "node:url";
 
 import { defineConfig } from "vite";
@@ -9,7 +10,8 @@ import { qrcode } from "vite-plugin-qrcode";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/bottigaemo/",
+  base: process.env.NODE_ENV === "production" ? "/bottigaemo/" : "/",
+
   plugins: [
     vue(),
     eslintPlugin({

@@ -100,4 +100,3 @@ onMounted(() => {
     </router-link>
   </div>
 </template>
-<style lang="scss"></style>

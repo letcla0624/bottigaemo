@@ -49,5 +49,3 @@ useMeta(
     </metainfo>
   </div>
 </template>
-
-<style lang="scss" scoped></style>

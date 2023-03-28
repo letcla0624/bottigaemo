@@ -93,5 +93,3 @@ const cancelCallback = () => {
     </n-modal>
   </div>
 </template>
-
-<style lang="scss" scoped></style>

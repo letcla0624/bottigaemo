@@ -77,5 +77,3 @@ onMounted(() => {
     <FooterComponent @language="changeLang" />
   </div>
 </template>
-
-<style lang="scss"></style>

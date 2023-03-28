@@ -25,7 +25,7 @@ const videoOptions = reactive({
   aspectRatio: "16:9",
   sources: [
     {
-      src: `/bottigaemo/video/products/${props.videoId}.mp4`,
+      src: `./video/products/${props.videoId}.mp4`,
       type: "video/mp4",
     },
   ],
@@ -46,5 +46,3 @@ const videoOptions = reactive({
     </n-modal>
   </div>
 </template>
-
-<style lang="scss" scoped></style>

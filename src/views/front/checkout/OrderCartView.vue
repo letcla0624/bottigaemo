@@ -217,5 +217,3 @@ onMounted(() => {
     </n-collapse>
   </div>
 </template>
-
-<style lang="scss"></style>
