@@ -11,6 +11,10 @@
     position: relative;
     height: 100%;
   }
+
+  button:focus {
+    outline: none;
+  }
 }
 
 @layer components {

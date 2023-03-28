@@ -59,7 +59,7 @@ const items = reactive(data);
 
 <template>
   <swiper
-    :direction="detectWidth > 768 ? 'vertical' : 'horizontal'"
+    :direction="detectWidth > 1200 ? 'vertical' : 'horizontal'"
     :modules="modules"
     :navigation="swiperOptions.navigation"
     :pagination="swiperOptions.pagination"

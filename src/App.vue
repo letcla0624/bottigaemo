@@ -49,6 +49,15 @@ onMounted(() => {
 </template>
 
 <style lang="scss">
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 #app {
   height: 100%;
   -webkit-overflow-scrolling: touch;
@@ -110,9 +119,7 @@ onMounted(() => {
 // 難纏的藍色外框
 :focus,
 :focus-visible {
-  @media screen and (min-width: 640px) {
-    outline: transparent auto 0px !important;
-  }
+  outline: none;
 }
 
 // swiper 手機很卡

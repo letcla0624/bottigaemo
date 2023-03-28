@@ -153,7 +153,7 @@ const metaData = reactive({
               },
             }"
             :mousewheel="true"
-            :freeMode="detectWidth >= 640 ? true : false"
+            :freeMode="detectWidth >= 768 ? true : false"
             :modules="modules"
             class="lg:w-7/12 lg:mt-20 4xl:h-[80vh]"
           >

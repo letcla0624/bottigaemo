@@ -61,7 +61,7 @@ onMounted(() => {
                     class="w-full transition duration-300"
                   />
                   <div
-                    class="w-full h-full text-primary-dark bg-neutral-100/90 hidden justify-center items-center absolute top-0 left-0 img-mask hover:visible transition duration-300"
+                    class="w-full h-full text-primary-dark bg-neutral-100/90 opacity-0 flex justify-center items-center absolute top-0 left-0 img-mask hover:opacity-100 transition duration-300"
                   >
                     <PlusIcon class="w-4 h-4 inline stroke-2 mr-1" />
                     {{ $t("more") }}

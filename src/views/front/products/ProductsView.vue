@@ -239,7 +239,7 @@ const metaData = reactive({
                   class="w-full transition duration-300"
                 />
                 <div
-                  class="w-full h-full bg-neutral-100/90 hidden justify-center items-center absolute top-0 left-0 img-mask hover:visible transition duration-300"
+                  class="w-full h-full bg-neutral-100/90 opacity-0 flex justify-center items-center absolute top-0 left-0 img-mask hover:opacity-100 transition duration-300"
                 >
                   <PlusIcon class="w-4 h-4 inline stroke-2 mr-1" />
                   {{ $t("more") }}
@@ -303,7 +303,7 @@ const metaData = reactive({
             <img
               src="https://storage.googleapis.com/vue-course-api.appspot.com/letcla-fashion/1678030834738.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=a3IKK5%2BUDvmyHRjdageKbuJ25412tvsZIG2zDcHL3FStBD7wEDcG8eIUGQJUAhmufEaflqCl8WL%2BRcg4kd6w0YazLxb5icM9dqMySC9BaQO1F1F2YKbmy4K76t3dyiH2hN1EWwQ1Lqo0l4jEspjMPVo0o2XWHg7oQJEoMVU%2BLG5pwcIR4uepgddRffaZ3ThIKOlFFhVrwmAfJ4ffFylq00nb6iYMhhB0RN2muL2uBkBjqtCZvo87tY%2Fw%2B2uY75ZTCR1VQV85kUGgmT5zk4lZ572HCOFtS%2BoJQ5ngBUk2R1z0sK53UglQTM3qZBH3WbezSy93vw8TCWfz73w5Wgkcwg%3D%3D"
               alt=""
-              class="h-full object-cover"
+              class="w-full h-full object-cover"
             />
           </div>
           <div
@@ -314,7 +314,7 @@ const metaData = reactive({
             <img
               src="https://storage.googleapis.com/vue-course-api.appspot.com/letcla-fashion/1678030361374.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=TYIOafWEAUxStry%2FFsqesRhL3VlVwJuJ%2FD1S6VYKmC6eOMAInS6ySNeBrXfF8YEv%2BHfwSnWS6tI%2FhRReVrWvb%2B1NUx534XB2Jnxw9TlnLAyq5fA6i%2Bk6CJmjQKvyMRaWwHebeH3yN4fLd4LgNPgnNx9V%2Bcq%2BHZ4XS7AVTWoH78SF5QiUkZp96xBd%2FnTwxJcIiolyTEYZ4tw2GMPim3G%2BVg%2Fj3Nma2mDy%2FCOYXVpR1lUewtmbbPRLE%2BI5xSHvkHs5zUifaQL0VkUuNCKgOe1UZVSSSEPMPYbPcnLbufXJuoTQrpZ1Q7jr7lUO849B7Jl6wUj8J4CDEUEiPzr827w0Pg%3D%3D"
               alt=""
-              class="h-full object-cover"
+              class="w-full h-full object-cover"
             />
           </div>
         </div>
