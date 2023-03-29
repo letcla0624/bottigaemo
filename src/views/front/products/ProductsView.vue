@@ -1,9 +1,10 @@
 <script setup>
-import { ref, reactive, inject, onMounted } from "vue";
+import { ref, reactive, inject, onMounted, watch } from "vue";
 import LoadingComponent from "@/components/LoadingComponent.vue";
 import LoveComponent from "@/components/front/LoveComponent.vue";
 import HeartFillComponent from "@/components/svgPath/HeartFillComponent.vue";
 import NoSearchComponent from "@/components/front/NoSearchComponent.vue";
+import { ChevronDownIcon } from "@heroicons/vue/24/outline";
 import MetaComponent from "@/components/front/MetaComponent.vue";
 import { toThousands } from "@/composable/toThousands.js";
 
@@ -56,6 +57,13 @@ let tempProducts = reactive({ arr: [] });
 const filters = reactive({ arr: [] });
 const filterProducts = ref([]);
 const sortSelect = ref("");
+const sortSelectWord = ref(
+  localLang.value === "zh_TW" ? "排序方式" : "Sort by"
+);
+
+watch(localLang, (newVal) => {
+  sortSelectWord.value = newVal === "zh_TW" ? "排序方式" : "Sort by";
+});
 
 const sortPrice = () => {
   if (filters.arr.length === 0 && filterProducts.value.length === 0) {
@@ -66,10 +74,37 @@ const sortPrice = () => {
     init();
     filters.arr = [];
     filterProducts.value.length = 0;
+
+    sortSelectWord.value =
+      localLang.value === "zh_TW" ? "全部商品" : "All Products";
+
+    watch(localLang, (newVal) => {
+      sortSelectWord.value = newVal === "zh_TW" ? "全部商品" : "All Products";
+    });
   } else if (sortSelect.value === "heightToLow") {
     tempProducts.arr = filterProducts.value.sort((a, b) => b.price - a.price);
+
+    sortSelectWord.value =
+      localLang.value === "zh_TW"
+        ? "價格：由高至低"
+        : "Highest to lowest price";
+
+    watch(localLang, (newVal) => {
+      sortSelectWord.value =
+        newVal === "zh_TW" ? "價格：由高至低" : "Highest to lowest price";
+    });
   } else if (sortSelect.value === "lowToHeight") {
     tempProducts.arr = filterProducts.value.sort((a, b) => a.price - b.price);
+
+    sortSelectWord.value =
+      localLang.value === "zh_TW"
+        ? "價格：由低至高"
+        : "Lowest to highest price";
+
+    watch(localLang, (newVal) => {
+      sortSelectWord.value =
+        newVal === "zh_TW" ? "價格：由低至高" : "Lowest to highest price";
+    });
   }
 };
 
@@ -182,36 +217,48 @@ const metaData = reactive({
           </video>
         </div>
         <div
-          class="flex justify-between items-center p-5 border-y mb-1 sticky top-16 md:top-[68px] bg-white z-10"
+          class="flex justify-between items-center text-xs px-2 py-5 border-y sticky top-16 md:top-[68px] bg-white z-10"
         >
           <button
             type="button"
-            class="flex items-center"
+            class="flex items-center uppercase"
             @click="activate('left')"
           >
             <AdjustmentsHorizontalIcon class="w-4 h-4 inline stroke-2 mr-1" />
             {{ $t("filters") }}
           </button>
           <div class="flex items-center">
-            <p class="text-black/50 mx-3 hidden sm:block">
+            <p class="text-black/50 mx-3 hidden sm:block uppercase">
               <template v-if="localLang === 'zh_TW'">
                 共 {{ tempProducts.arr.length }} 件商品
               </template>
               <template v-else-if="localLang === 'en'">
-                Total {{ tempProducts.arr.length }} products
+                Total {{ tempProducts.arr.length }} items
               </template>
             </p>
-            <div class="border-l border-black/40 pl-3">
+            <div
+              class="border-l border-black/40 pl-3 flex items-center relative"
+            >
+              <button type="button" class="uppercase">
+                {{ sortSelectWord }}
+              </button>
               <select
-                class="form-select text-sm border-0 py-0 focus:ring-0"
+                class="form-select text-xs uppercase border-0 py-0 focus:ring-0 absolute w-full opacity-0"
                 v-model="sortSelect"
                 @change="sortPrice()"
               >
-                <option value="" disabled>排序方式</option>
-                <option value="normal" selected>全部商品</option>
-                <option value="heightToLow">價格：由高至低</option>
-                <option value="lowToHeight">價格：由低至高</option>
+                <option value="" disabled>{{ $t("sortBy") }}</option>
+                <option value="normal" selected>
+                  {{ $t("allProducts") }}
+                </option>
+                <option value="heightToLow">
+                  {{ $t("priceH-L") }}
+                </option>
+                <option value="lowToHeight">
+                  {{ $t("priceL-H") }}
+                </option>
               </select>
+              <ChevronDownIcon class="w-4 h-4 ml-3" />
             </div>
           </div>
         </div>
