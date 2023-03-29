@@ -290,29 +290,32 @@ const metaData = reactive({
                 >
                   <PlusIcon class="w-4 h-4 inline stroke-2 mr-1" />
                   {{ $t("more") }}
-                  <button
-                    type="button"
-                    class="absolute right-0 top-0 p-3 z-[1]"
-                    @click.prevent="toggleFavorite(product.id)"
-                  >
-                    <n-tooltip
-                      trigger="hover"
-                      v-if="!favoriteProdArr.arr.includes(product.id)"
-                    >
-                      <template #trigger>
-                        <HeartIcon class="cursor-pointer iconHover w-5 h-5" />
-                      </template>
-                      {{ $t("addFavorites") }}
-                    </n-tooltip>
-                    <n-tooltip trigger="hover" v-else>
-                      <template #trigger>
+                  <n-tooltip trigger="hover">
+                    <template #trigger>
+                      <button
+                        type="button"
+                        class="absolute right-0 top-0 p-3 z-[1]"
+                        @click.prevent="toggleFavorite(product.id)"
+                      >
+                        <HeartIcon
+                          class="cursor-pointer iconHover w-5 h-5"
+                          :class="{
+                            hidden: favoriteProdArr.arr.includes(product.id),
+                          }"
+                        />
                         <HeartFillComponent
                           class="cursor-pointer iconHover w-5 h-5 fill-primary-dark"
+                          :class="{
+                            hidden: !favoriteProdArr.arr.includes(product.id),
+                          }"
                         />
-                      </template>
-                      {{ $t("removeFavorites") }}
-                    </n-tooltip>
-                  </button>
+                      </button>
+                    </template>
+                    <span v-if="!favoriteProdArr.arr.includes(product.id)">
+                      {{ $t("addFavorites") }}
+                    </span>
+                    <span v-else>{{ $t("removeFavorites") }}</span>
+                  </n-tooltip>
                   <template v-if="startFavoriteAnim">
                     <LoveComponent :idx="idx" />
                   </template>
