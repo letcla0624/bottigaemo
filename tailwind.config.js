@@ -2,7 +2,11 @@
 /** @type {import('tailwindcss').Config} */
 
 module.exports = {
-  content: ["./src/**/*", "./src/**/*.{js,ts,jsx,tsx}"],
+  content: [
+    "./src/**/*",
+    "./src/**/*.{js,ts,jsx,tsx}",
+    "./node_modules/flowbite/**/*.js",
+  ],
   theme: {
     container: {
       center: true,
@@ -31,5 +35,9 @@ module.exports = {
       },
     },
   },
-  plugins: [require("@tailwindcss/line-clamp"), require("@tailwindcss/forms")],
+  plugins: [
+    require("@tailwindcss/line-clamp"),
+    require("@tailwindcss/forms"),
+    require("flowbite/plugin"),
+  ],
 };

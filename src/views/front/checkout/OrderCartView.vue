@@ -1,6 +1,7 @@
 <script setup>
 import { onMounted } from "vue";
 import { NCollapse, NCollapseItem, NBadge } from "naive-ui";
+import CheckQAComponent from "@/components/front/checkout/CheckQAComponent.vue";
 import { ChevronRightIcon } from "@heroicons/vue/24/outline";
 
 import { toThousands } from "@/composable/toThousands.js";
@@ -158,7 +159,7 @@ onMounted(() => {
             </p>
           </template>
         </div>
-        <div class="border-b py-5">
+        <div class="pt-5 pb-4">
           <div class="flex justify-between mb-3">
             <h6>{{ $t("subtotal") }}</h6>
             <p>
@@ -186,7 +187,7 @@ onMounted(() => {
             <p>{{ $t("free") }}</p>
           </div>
         </div>
-        <div class="flex justify-between items-center py-4">
+        <div class="flex justify-between items-center pt-4">
           <h6 class="font-bold">{{ $t("total") }}</h6>
           <div class="flex items-center">
             <small class="text-xs text-black/50 mr-2">
@@ -215,5 +216,6 @@ onMounted(() => {
         </template>
       </n-collapse-item>
     </n-collapse>
+    <CheckQAComponent />
   </div>
 </template>
