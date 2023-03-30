@@ -24,9 +24,6 @@ import "material-icons/iconfont/material-icons.css";
 // 引入 naive ui
 import naive from "naive-ui";
 
-// 引入 aos
-import "aos/dist/aos.css";
-
 // 引入 Lottie
 import LottieAnimation from "lottie-web-vue";
 
