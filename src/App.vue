@@ -2,7 +2,6 @@
 import { RouterView } from "vue-router";
 import { onMounted, ref, provide } from "vue";
 import { NConfigProvider } from "naive-ui";
-import AOS from "aos";
 
 const themeOverrides = {
   common: {
@@ -38,7 +37,6 @@ onMounted(() => {
   };
 
   getDate();
-  AOS.init();
 });
 </script>
 

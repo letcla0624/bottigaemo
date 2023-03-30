@@ -15,8 +15,6 @@ export const useFrontCartStore = defineStore("frontCart", () => {
   const enTotal = ref(0);
   const loadingCart = ref(false);
   const localLang = ref("");
-  // const inStock = ref(0);
-  // const productQty = ref(0);
   const newCartArr = ref([]);
 
   localLang.value = localStorage.getItem("language");
