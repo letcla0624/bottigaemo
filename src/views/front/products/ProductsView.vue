@@ -243,7 +243,7 @@ const metaData = reactive({
                 {{ sortSelectWord }}
               </button>
               <select
-                class="form-select text-xs uppercase border-0 py-0 focus:ring-0 absolute w-full opacity-0"
+                class="form-select text-xs uppercase border-0 py-0 focus:ring-0 absolute right-5 w-full opacity-0"
                 v-model="sortSelect"
                 @change="sortPrice()"
               >
