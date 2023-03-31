@@ -18,8 +18,11 @@ const { getCarts, useCoupon } = frontCartStore;
 const changeLangStore = useChangeLangStore();
 const { localLang } = storeToRefs(changeLangStore);
 
+// const useCouponTxt = ref(false);
+
 onMounted(() => {
   getCarts();
+  // localStorage.setItem("useCouponTxt", useCouponTxt.value);
 });
 </script>
 
@@ -28,7 +31,7 @@ onMounted(() => {
     <div class="my-10 md:hidden">
       <div class="text-center my-5">
         <h1 class="font-bodoni text-3xl md:text-5xl tracking-tighter">
-          <em>Bottiga</em>emo
+          <RouterLink to="/"> <em>Bottiga</em>emo </RouterLink>
         </h1>
       </div>
       <ul class="list-unstyled flex items-center justify-center text-xs">
@@ -60,7 +63,31 @@ onMounted(() => {
         :title="localLang === 'zh_TW' ? '購物袋商品' : 'Shopping Bag Items'"
         name="1"
       >
-        <ul class="pb-5 border-y">
+        <template v-if="cart.arr.total === 0">
+          <p class="text-black/40 border-t border-black/10 py-3">
+            <template v-if="localLang === 'zh_TW'">
+              您的購物袋目前沒有產品！請
+              <RouterLink
+                to="/products"
+                class="text-black border-b hover:text-primary"
+              >
+                返回商品頁面
+              </RouterLink>
+              選購。
+            </template>
+            <template v-else-if="localLang === 'en'">
+              Your shopping bag currently has no products! Please
+              <RouterLink
+                to="/products"
+                class="text-black border-b hover:text-primary"
+              >
+                return to the products page
+              </RouterLink>
+              to make a selection.
+            </template>
+          </p>
+        </template>
+        <ul v-else class="pb-5 border-y border-black/10">
           <li
             v-for="cartItem in cart.arr.carts"
             :key="cartItem.id"
@@ -106,7 +133,7 @@ onMounted(() => {
             </p>
           </li>
         </ul>
-        <div class="py-5 border-b">
+        <div class="py-5 border-b border-black/10">
           <div class="relative">
             <div
               class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"

@@ -29,6 +29,7 @@ export const useFrontCartStore = defineStore("frontCart", () => {
   };
 
   const code = ref("");
+  const useCouponTxt = ref("");
   const useCoupon = async () => {
     localLang.value = localStorage.getItem("language");
     const data = {
@@ -42,7 +43,8 @@ export const useFrontCartStore = defineStore("frontCart", () => {
       );
 
       code.value = "";
-
+      useCouponTxt.value = "true";
+      sessionStorage.setItem("useCouponTxt", useCouponTxt.value);
       getCarts();
 
       if (localLang.value === "zh_TW") {
@@ -51,7 +53,7 @@ export const useFrontCartStore = defineStore("frontCart", () => {
           type: "success",
         });
       } else if (localLang.value === "en") {
-        toast("Coupon applied", {
+        toast("Coupon applied.", {
           icon: CheckCircleIcon,
           type: "success",
         });
@@ -107,7 +109,15 @@ export const useFrontCartStore = defineStore("frontCart", () => {
         priceArr.arr.push(item.item_enTotal);
       });
       enTotal.value = priceArr.arr.reduce((acc, cur) => acc + cur, 0);
-      final_enTotal.value = enTotal.value * 0.95;
+
+      if (res.data.data.carts.length === 0) {
+        sessionStorage.setItem("useCouponTxt", false);
+      }
+      // 英文版使用折價扣碼價格
+      useCouponTxt.value = sessionStorage.getItem("useCouponTxt");
+      if (useCouponTxt.value === "true") {
+        final_enTotal.value = enTotal.value * 0.95;
+      }
     } catch (err) {
       loadingCart.value = false;
       alert(err.response.data.message);
@@ -144,7 +154,7 @@ export const useFrontCartStore = defineStore("frontCart", () => {
           type: "success",
         });
       } else if (localLang.value === "en") {
-        toast("Added to shopping bag", {
+        toast("Added to shopping bag.", {
           icon: CheckCircleIcon,
           type: "success",
         });
@@ -182,7 +192,7 @@ export const useFrontCartStore = defineStore("frontCart", () => {
           type: "success",
         });
       } else if (localLang.value === "en") {
-        toast("Shopping bag updated", {
+        toast("Shopping bag updated.", {
           icon: CheckCircleIcon,
           type: "success",
         });
@@ -213,7 +223,7 @@ export const useFrontCartStore = defineStore("frontCart", () => {
           type: "success",
         });
       } else if (localLang.value === "en") {
-        toast("Item deleted", {
+        toast("Item deleted.", {
           icon: CheckCircleIcon,
           type: "success",
         });

@@ -24,8 +24,10 @@
     "charming": "^3.0.2",
     "flowbite": "^1.6.4",
     "gsap": "^3.11.4",
+    "libphonenumber-js": "^1.10.24",
     "lottie-web-vue": "^2.0.6",
     "material-icons": "^1.13.1",
+    "maz-ui": "^3.8.0",
     "pinia": "^2.0.30",
     "postcss-import": "^15.1.0",
     "postcss-nesting": "^11.2.0",
@@ -39,6 +41,7 @@
     "vue-masonry": "^0.16.0",
     "vue-meta": "^3.0.0-alpha.10",
     "vue-router": "^4.1.6",
+    "vue-tel-input": "^6.0.5",
     "vue3-toastify": "^0.1.0"
   },
   "devDependencies": {

@@ -15,7 +15,7 @@ const noticeMessage = () => {
   if (localLang.value === "zh_TW") {
     content.value = `好消息，為了回饋 Bottigaemo 隱藏 VIP 的顧客們，即日起只要在結帳時輸入折扣碼：「bottigaemovip」，全館商品 95 折，VIP 折扣碼將不定時下架，請各位 VIP 們好好把握機會喔~✌️`;
   } else if (localLang.value === "en") {
-    content.value = `Good news! In order to reward Bottigaemo's VIP customers, starting today, if you enter the discount code 「bottigaemovip」 at checkout, you can enjoy a 5% discount on all products in the store. The VIP discount code will be taken down at irregular intervals, so VIP customers please take advantage of this opportunity!`;
+    content.value = `Good news! In order to reward Bottigaemo's VIP customers, starting today, if you enter the discount code 「bottigaemovip」 at checkout, you can enjoy a 5% discount on all products in the store. The VIP discount code will be taken down at irregular intervals, so VIP customers please take advantage of this opportunity! ✌️`;
   }
 
   notification.create({

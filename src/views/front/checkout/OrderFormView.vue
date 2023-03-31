@@ -50,16 +50,6 @@ const error = ref(false);
 // 判斷 vee-validate 語系
 setLocale(localLang.value);
 
-const isPhone = (value) => {
-  const phoneNumber = /^(09)[0-9]{8}$/;
-
-  return phoneNumber.test(value)
-    ? true
-    : localLang.value === "zh_TW"
-    ? "需要輸入 09 開頭的台灣手機格式"
-    : "Taiwanese mobile phone number format starting with 09 is required.";
-};
-
 const fieldEmail = ref(localLang.value === "zh_TW" ? "電子郵件" : "Email");
 const fieldAddress = ref(
   localLang.value === "zh_TW" ? "收件人地址 " : "Address"
@@ -71,6 +61,31 @@ watch(localLang, (newVal) => {
   fieldAddress.value = newVal === "zh_TW" ? "收件人地址" : "Address";
   fieldName.value = newVal === "zh_TW" ? "收件人姓名 " : "Name";
 });
+
+// 電話驗證
+const phoneInput = ref(null);
+const errorPhone = ref(false);
+const errorPhoneMessage = ref("");
+const errorFn = () => {
+  if (phoneInput.value.modelValue === undefined) {
+    errorPhone.value = true;
+    localLang.value === "zh_TW"
+      ? (errorPhoneMessage.value = "收件人電話 為必填")
+      : (errorPhoneMessage.value = "phone number is required.");
+  } else {
+    errorPhone.value = false;
+    errorPhoneMessage.value = "";
+    if (phoneInput.value.$el.lastChild.className.includes("--error")) {
+      localLang.value === "zh_TW"
+        ? (errorPhoneMessage.value = "請填入正確的電話格式")
+        : (errorPhoneMessage.value =
+            "Please enter the correct telephone format.");
+    } else {
+      errorPhoneMessage.value = "";
+      createOrder();
+    }
+  }
+};
 
 const createOrder = async () => {
   loading.value = true;
@@ -95,17 +110,35 @@ const createOrder = async () => {
     getCarts();
     router.push(`/order-finish/${res.data.orderId}`);
 
-    toast(res.data.message, {
-      icon: CheckCircleIcon,
-      type: "success",
-    });
+    // 英文版折扣碼清除
+    sessionStorage.setItem("useCouponTxt", false);
+
+    if (localLang.value === "zh_TW") {
+      toast(res.data.message, {
+        icon: CheckCircleIcon,
+        type: "success",
+      });
+    } else if (localLang.value === "en") {
+      toast("Order created.", {
+        icon: CheckCircleIcon,
+        type: "success",
+      });
+    }
   } catch (err) {
     loading.value = false;
     error.value = true;
-    toast(err.response.data.message, {
-      icon: ExclamationCircleIcon,
-      type: "error",
-    });
+
+    if (localLang.value === "zh_TW") {
+      toast(err.response.data.message, {
+        icon: ExclamationCircleIcon,
+        type: "error",
+      });
+    } else if (localLang.value === "en") {
+      toast("The address attribute cannot be empty!", {
+        icon: ExclamationCircleIcon,
+        type: "error",
+      });
+    }
   }
 };
 
@@ -118,6 +151,21 @@ onMounted(() => {
     elZipcode: ".zipcode",
   });
 });
+
+const results = ref();
+const countryCode = ref("");
+const phoneExample = ref("");
+const phoneNumber = ref("");
+
+if (localLang.value === "zh_TW") {
+  countryCode.value = "國碼";
+  phoneExample.value = "範例：";
+  phoneNumber.value = "收件人電話";
+} else {
+  countryCode.value = "Country Code";
+  phoneExample.value = "Example:";
+  phoneNumber.value = "Phone Number";
+}
 </script>
 
 <template>
@@ -152,7 +200,7 @@ onMounted(() => {
       ref="form"
       class="md:text-sm my-5"
       v-slot="{ errors }"
-      @submit="createOrder"
+      @submit="errorFn"
     >
       <div class="mb-10">
         <h2 class="text-lg mb-4">{{ $t("paymentInfo") }}</h2>
@@ -303,7 +351,7 @@ onMounted(() => {
               id="name"
               class="block w-full p-3 pl-10 border border-gray-300 appearance-none focus:border-primary-dark focus:outline-none focus:ring-1 focus:ring-primary-dark peer"
               placeholder=" "
-              :class="{ 'border-red-500': errors['fieldName'] }"
+              :class="{ 'border-red-500': errors[fieldName] }"
               rules="required"
               v-model.trim="data.user.name"
             />
@@ -321,48 +369,31 @@ onMounted(() => {
           <error-message :name="fieldName" class="text-red-500 text-sm" />
         </div>
         <div class="mb-5">
-          <div class="relative mb-2">
-            <div
-              class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
-            >
-              <svg
-                aria-hidden="true"
-                class="w-5 h-5 text-gray-500 dark:text-gray-400"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3"
-                />
-              </svg>
-            </div>
-            <VField
-              type="tel"
-              name="收件人電話"
-              id="tel"
-              class="block w-full p-3 pl-10 border border-gray-300 appearance-none focus:border-primary-dark focus:outline-none focus:ring-1 focus:ring-primary-dark peer"
-              placeholder=" "
-              oninput="value=value.replace(/[^\d]/g,'')"
-              :class="{ 'border-red-500': errors['收件人電話'] }"
-              :rules="isPhone"
-              v-model.trim="data.user.tel"
-            />
-            <label
-              for="tel"
-              class="absolute text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-primary-dark peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
-            >
-              <span
-                class="after:content-['*'] after:ml-1 after:text-red-500 block"
-              >
-                {{ $t("cellphone") }}
-              </span>
-            </label>
-          </div>
-          <error-message name="收件人電話" class="text-red-500 text-sm" />
+          <MazPhoneNumberInput
+            ref="phoneInput"
+            v-model.trim="data.user.tel"
+            show-code-on-list
+            color="black"
+            size="lg"
+            no-radius
+            noSearch
+            :only-countries="['TW', 'AU']"
+            @update="results = $event"
+            :success="results?.isValid"
+            required
+            :error="errorPhone"
+            :translations="{
+              countrySelector: {
+                placeholder: countryCode,
+                error: 'Choose country',
+              },
+              phoneInput: {
+                placeholder: phoneNumber,
+                example: phoneExample,
+              },
+            }"
+          />
+          <p class="text-red-500 text-sm mt-2">{{ errorPhoneMessage }}</p>
         </div>
       </div>
       <div class="mb-5">
@@ -414,7 +445,7 @@ onMounted(() => {
         </div>
         <button
           type="submit"
-          class="btn btn-dark disabled:opacity-25 disabled:cursor-not-allowed w-full sm:w-1/2 xl:w-1/3"
+          class="btn btn-dark disabled:opacity-25 disabled:cursor-not-allowed w-full sm:w-1/2 xl:w-1/3 whitespace-nowrap"
           :disabled="
             cart.arr.final_total === 0 || loading || cart.arr.length === 0
           "
@@ -467,5 +498,26 @@ onMounted(() => {
       --tw-ring-color: red;
     }
   }
+}
+
+[type="text"]:focus {
+  --tw-ring-shadow: none;
+}
+
+:root {
+  --maz-border-width: 1px;
+  --maz-border-radius: 0;
+}
+.m-input-wrapper.--default-border {
+  border-color: rgba(209, 213, 219, 1) !important;
+}
+.m-input.--lg {
+  .m-input-label,
+  .m-input-input {
+    font-size: 14px !important;
+  }
+}
+.m-input.--has-label .m-input-input {
+  padding-top: 1.3rem !important;
 }
 </style>

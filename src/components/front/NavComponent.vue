@@ -235,7 +235,7 @@ const openDelModal = (cartItem) => {
         <li
           v-for="cartItem in cart.arr.carts"
           :key="cartItem.product_id"
-          class="py-4 border-b"
+          class="py-4 border-b border-black/10"
         >
           <div class="flex items-center">
             <RouterLink

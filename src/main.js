@@ -30,6 +30,10 @@ import LottieAnimation from "lottie-web-vue";
 // 引入 VueMasonry
 import { VueMasonryPlugin } from "vue-masonry";
 
+// 引入 VuePhoneNumberInput
+import "maz-ui/css/main.css";
+import MazPhoneNumberInput from "maz-ui/components/MazPhoneNumberInput";
+
 // 引入 i18n
 import { createI18n } from "vue-i18n";
 import zh from "./assets/languages/zh_TW.json";
@@ -109,6 +113,9 @@ app.use(Vue3Toastify, {
   autoClose: 800,
   position: toast.POSITION.BOTTOM_RIGHT,
 });
+
+// 加入電話元件
+app.component("MazPhoneNumberInput", MazPhoneNumberInput);
 
 // 加入 Vee-Validate 元件
 app.component("VForm", Form);

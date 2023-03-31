@@ -27,7 +27,7 @@ onMounted(() => {
           >
             <RouterView name="leftSide" :detectWidth="detectWidth" />
             <p class="text-xs text-center md:text-left py-2">
-              &copy; {{ year }} Bottigaemo |
+              &copy; {{ year }} Bottigaemo | Design & Code by WILL.
             </p>
           </div>
         </div>

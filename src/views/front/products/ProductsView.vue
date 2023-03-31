@@ -217,7 +217,7 @@ const metaData = reactive({
           </video>
         </div>
         <div
-          class="flex justify-between items-center text-xs px-2 py-5 border-y sticky top-16 md:top-[68px] bg-white z-10"
+          class="flex justify-between items-center text-xs px-2 py-5 border-y border-black/10 sticky top-16 md:top-[68px] bg-white z-10"
         >
           <button
             type="button"
