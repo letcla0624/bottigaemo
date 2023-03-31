@@ -112,7 +112,10 @@ const filterCategory = async () => {
   const bigPics = document.querySelectorAll(".bigPic");
   tempProducts = { ...products.value };
 
+  // 篩選清空商品重新撈取
   if (filters.arr.length === 0) {
+    init();
+    filterProducts.value = products.value.arr;
     bigPics.forEach((item) => {
       detectWidth.value >= 768
         ? item.classList.remove("hidden")
