@@ -366,7 +366,7 @@ const metaData = reactive({
                   @click="showModal = true"
                 >
                   <ScissorsIcon class="w-5 h-5 pr-1" />
-                  <span class="border-b border-primary-dark">
+                  <span class="border-b border-primary-dark pb-1">
                     {{ $t("sizeChart") }}
                   </span>
                 </button>
@@ -465,7 +465,7 @@ const metaData = reactive({
                     @click="showVideoModal = true"
                   >
                     <PlayCircleIcon class="w-5 h-5 inline stroke-2 pr-1" />
-                    <span class="border-b border-primary-dark">
+                    <span class="border-b border-primary-dark pb-1">
                       {{ $t("watchVideo") }}
                     </span>
                   </button>
