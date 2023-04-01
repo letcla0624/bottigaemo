@@ -19,9 +19,7 @@ https://letcla0624.github.io/bottigaemo/
 
 ## Use Technology & Library
 
-- AOS
 - Axios
-- CKEditor 5
 - ESLint
 - Flowbite
 - GSAP 3
@@ -43,4 +41,5 @@ https://letcla0624.github.io/bottigaemo/
 - Vue LazyLoad
 - Vue Masonry
 - Vue Meta
+- Vue Phone Number Input
 - Vue Router
