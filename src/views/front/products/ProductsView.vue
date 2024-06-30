@@ -114,8 +114,12 @@ const filterCategory = async () => {
 
   // 篩選清空商品重新撈取
   if (filters.arr.length === 0) {
-    init();
     filterProducts.value = products.value.arr;
+
+    if (sortSelect.value !== "normal") {
+      sortPrice();
+    }
+
     bigPics.forEach((item) => {
       detectWidth.value >= 768
         ? item.classList.remove("hidden")
@@ -143,6 +147,7 @@ const filterCategory = async () => {
 const init = () => {
   getProducts();
   tempProducts = products.value;
+  Object.assign(tempProducts, products.value);
 };
 
 onMounted(() => {
