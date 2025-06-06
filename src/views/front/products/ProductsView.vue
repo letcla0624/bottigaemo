@@ -1,32 +1,32 @@
 <script setup>
-import { ref, reactive, inject, onMounted, watch } from "vue";
 import LoadingComponent from "@/components/LoadingComponent.vue";
 import LoveComponent from "@/components/front/LoveComponent.vue";
-import HeartFillComponent from "@/components/svgPath/HeartFillComponent.vue";
-import NoSearchComponent from "@/components/front/NoSearchComponent.vue";
-import { ChevronDownIcon } from "@heroicons/vue/24/outline";
 import MetaComponent from "@/components/front/MetaComponent.vue";
+import NoSearchComponent from "@/components/front/NoSearchComponent.vue";
+import HeartFillComponent from "@/components/svgPath/HeartFillComponent.vue";
 import { toThousands } from "@/composable/toThousands.js";
+import { ChevronDownIcon } from "@heroicons/vue/24/outline";
+import { inject, onMounted, reactive, ref, watch } from "vue";
 
 import {
   AdjustmentsHorizontalIcon,
-  PlusIcon,
   HeartIcon,
+  PlusIcon,
 } from "@heroicons/vue/24/outline";
 
 import {
+  NCheckboxGroup,
+  NDivider,
   NDrawer,
   NDrawerContent,
-  NCheckboxGroup,
-  NGrid,
   NGi,
-  NDivider,
+  NGrid,
 } from "naive-ui";
 
-import { storeToRefs } from "pinia";
-import { useFrontProductsStore } from "@/stores/frontProductsStore.js";
-import { useFrontFavoriteStore } from "@/stores/frontFavoriteStore.js";
 import { useChangeLangStore } from "@/stores/changeLangStore.js";
+import { useFrontFavoriteStore } from "@/stores/frontFavoriteStore.js";
+import { useFrontProductsStore } from "@/stores/frontProductsStore.js";
+import { storeToRefs } from "pinia";
 
 // pinia getProducts
 const frontProductsStore = useFrontProductsStore();
@@ -207,7 +207,7 @@ const metaData = reactive({
             muted
             playsinline
             controlslist="nodownload"
-            poster="https://storage.googleapis.com/vue-course-api.appspot.com/letcla-fashion/1678027705055.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=fvX5QcNMyUffiFabMNLAh77FbUGpoKYZ5UKdKfyRwrT%2FYYB%2B%2B%2FGOvH%2F6a%2FZ2Gl%2BAPnuCUw8HqAHh5moDwhnXzC9xobTKa4MjRaUb0sjX8Rg2Rx0Lp7wkfgVayQgF0ugVuJS%2BIY7Cu24tZ1gxExchHCEer67M2yqDa6Tl%2Beozbk9kSeXi76Jl%2FXZlJSWGBcJuETs%2Behn7vPzF9z%2FHCaSmjx1IJQvF4MMxWqfeNeCAIXLeITmYRqqojf8YAQTCFSjvLQGVYFoPlUrDejOwj2dihtsh5HqUAgrnneRgiaUSAMMewRnbS2WUoaHcNGXRHrjLVn9W6ZCIvFFOnlTIXe0%2BrQ%3D%3D"
+            poster="https://storage.googleapis.com/vue-course-api.appspot.com/letcla-fashion/1678027705055.jpg"
           >
             <source src="/video/products/banner-phone.mp4" type="video/mp4" />
           </video>
@@ -218,7 +218,7 @@ const metaData = reactive({
             muted
             playsinline
             controlslist="nodownload"
-            poster="https://storage.googleapis.com/vue-course-api.appspot.com/letcla-fashion/1678027725410.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=bEEl5ToZH8d1YmyGCMSycDKBvt9x6R3J9C0yCzsVEA6H8HPyhaGmpW7MdQNkY8l1EVaX1wwK%2FdjUzd3JczS2TK3eCTTqAwgoWaz2zRKiwi2YZzNEq7uqjqnOf%2FobYsjyE6e3Xe%2BA5TWjqZzNFyTbalsISY42yDgKI9dOQRuMaawmG2ipus78wsHl1lciC%2Frxt19I5Pu6t1h0lOA6mztbNgl7ljw8gZjpq6qsbdkDsBULMmU4MZHad%2F1fTbiGpS4g9Z4gVyq8LProBc5N1%2Fv5f%2BoXdQw9kHFTjmoYeeJ%2F3742C1IvOK3Z9BDmdnBJHkSmRjd94NpHzXTv6xHC%2BjAYJQ%3D%3D"
+            poster="https://storage.googleapis.com/vue-course-api.appspot.com/letcla-fashion/1678027725410.jpg"
             class="w-full"
           >
             <source src="/video/products/banner.mp4" type="video/mp4" />
@@ -359,7 +359,7 @@ const metaData = reactive({
             ref="bigPic1"
           >
             <img
-              src="https://storage.googleapis.com/vue-course-api.appspot.com/letcla-fashion/1678030834738.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=a3IKK5%2BUDvmyHRjdageKbuJ25412tvsZIG2zDcHL3FStBD7wEDcG8eIUGQJUAhmufEaflqCl8WL%2BRcg4kd6w0YazLxb5icM9dqMySC9BaQO1F1F2YKbmy4K76t3dyiH2hN1EWwQ1Lqo0l4jEspjMPVo0o2XWHg7oQJEoMVU%2BLG5pwcIR4uepgddRffaZ3ThIKOlFFhVrwmAfJ4ffFylq00nb6iYMhhB0RN2muL2uBkBjqtCZvo87tY%2Fw%2B2uY75ZTCR1VQV85kUGgmT5zk4lZ572HCOFtS%2BoJQ5ngBUk2R1z0sK53UglQTM3qZBH3WbezSy93vw8TCWfz73w5Wgkcwg%3D%3D"
+              src="https://storage.googleapis.com/vue-course-api.appspot.com/letcla-fashion/1678030834738.jpg"
               alt=""
               class="w-full h-full object-cover"
             />
@@ -370,7 +370,7 @@ const metaData = reactive({
             ref="bigPic2"
           >
             <img
-              src="https://storage.googleapis.com/vue-course-api.appspot.com/letcla-fashion/1678030361374.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=TYIOafWEAUxStry%2FFsqesRhL3VlVwJuJ%2FD1S6VYKmC6eOMAInS6ySNeBrXfF8YEv%2BHfwSnWS6tI%2FhRReVrWvb%2B1NUx534XB2Jnxw9TlnLAyq5fA6i%2Bk6CJmjQKvyMRaWwHebeH3yN4fLd4LgNPgnNx9V%2Bcq%2BHZ4XS7AVTWoH78SF5QiUkZp96xBd%2FnTwxJcIiolyTEYZ4tw2GMPim3G%2BVg%2Fj3Nma2mDy%2FCOYXVpR1lUewtmbbPRLE%2BI5xSHvkHs5zUifaQL0VkUuNCKgOe1UZVSSSEPMPYbPcnLbufXJuoTQrpZ1Q7jr7lUO849B7Jl6wUj8J4CDEUEiPzr827w0Pg%3D%3D"
+              src="https://storage.googleapis.com/vue-course-api.appspot.com/letcla-fashion/1678030361374.jpg"
               alt=""
               class="w-full h-full object-cover"
             />

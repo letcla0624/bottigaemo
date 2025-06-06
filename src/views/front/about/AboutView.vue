@@ -1,11 +1,11 @@
 <script setup>
-import { ref, reactive, onMounted, inject } from "vue";
 import LoadingComponent from "@/components/LoadingComponent.vue";
 import MetaComponent from "@/components/front/MetaComponent.vue";
 import gsap from "gsap";
+import { inject, onMounted, reactive, ref } from "vue";
 
-import { storeToRefs } from "pinia";
 import { useChangeLangStore } from "@/stores/changeLangStore.js";
+import { storeToRefs } from "pinia";
 
 // pinia language
 const changeLangStore = useChangeLangStore();
@@ -59,7 +59,7 @@ const metaData = reactive({
       >
         <img
           v-if="detectWidth >= 768"
-          src="https://storage.googleapis.com/vue-course-api.appspot.com/letcla-fashion/1678209168605.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=UhfHARL1WC5k8AksaEj%2FNXv7Sqk7kPsVI0RRA%2Bp3988DwiYwJf85bIpcnwIiwzj1M4J%2FKwJ6G9ma3HszAqJqvPWcBjyUo00EJrnxq9Ctg%2BCkX7K2fxRyNLqWtqc71RarmItdKrpFbPro7jQBUng5oMjrJp7wNmdJdeCZYWDE6oTgIJ0%2B8%2FahdJKmS8kavMM2QhDvW1EA1dOrmVvvr6dLNT%2Fni%2F%2Fu57gcRqM1A%2FLuHs2TN3xSfWgnd6%2FmWut6WrKni%2BCHYojWwvAgMLZlo95GWCkQ6twrvGkJACTYIk%2F0578w8QaRP2xgiPZ2INTuH5Da6GJ3VAKcelg9w60WMTSv9Q%3D%3D"
+          src="https://storage.googleapis.com/vue-course-api.appspot.com/letcla-fashion/1678209168605.jpg"
           :alt="
             localLang === 'zh_TW'
               ? '洛琳·塔詩·娜潔'
@@ -69,7 +69,7 @@ const metaData = reactive({
         />
         <img
           v-else
-          src="https://storage.googleapis.com/vue-course-api.appspot.com/letcla-fashion/1678201104884.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=Sfwc9tCdmTk1sqCwpJzv4Dyisp1gDumKSehkmSAXnW4u9a2ZJXed2bdK5ytGo0900RsuKOjsjCOKsHOtZs4RloRAbV3la%2BwWeW7Y0Pnh2LHy8YuPEbbJ14JSP4a5KOFXc3hvOv%2FoqmGg5qo7a58jr9ymJCsCdLukHLSrM9ucq%2FKXWJvcLmgKrPpaQ21ZdY%2BH4PjuABriB0fpgj1D7G99sO03C6aY1SBam3Yjm5A24C%2FG%2FwvTJj0R5OEy9VOe9%2BJtT6qbX4Xef5JK%2BRvt0MhsUVkbTjat%2FQ4Pbm3shW6qnUf22itbi8mntgTCfYuYnt8O5u92DCn6EygGLZaCfBM1lQ%3D%3D"
+          src="https://storage.googleapis.com/vue-course-api.appspot.com/letcla-fashion/1678201104884.jpg"
           :alt="
             localLang === 'zh_TW'
               ? '洛琳·塔詩·娜潔'
@@ -164,7 +164,7 @@ const metaData = reactive({
             藍洛琳·塔詩·娜潔
           </p>
           <img
-            src="https://storage.googleapis.com/vue-course-api.appspot.com/letcla-fashion/1678209957301.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=I3%2FoiCPH4zJgjNG0coFt1CGtJwejDtSyZwQ8esec2fnP7UxKpMC0%2FiVeDCAvlzvUw1mGlIDQAh%2FgiY8p0%2FHNIARalFf0RsTmEND3RWoSwEvKoX32nhrigqEYlnHifcxYWv0CACVpDgNHurusAfq3YdtHyRwydhytCB1TLHvAxyrfWx7aVvLW9TNpja40zJsOuVXbwC5KjowddcmaufDt98M2ett2UHZVtfJja4fdYnN2%2B%2B7W%2FoZRAYmZv83s6uv77JJSChFer2uhPEB50SL1F5jcSYVY3YGOnYT%2F5%2FlQMaJZ5TgsiqPL62AkHS6kxgMZw0GDHG6oj6Pv95EnB61oEw%3D%3D"
+            src="https://storage.googleapis.com/vue-course-api.appspot.com/letcla-fashion/1678209957301.png"
             alt=""
             class="sm:w-1/2 transform -rotate-3"
           />

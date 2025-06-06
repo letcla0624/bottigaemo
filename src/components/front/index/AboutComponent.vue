@@ -51,7 +51,7 @@ const setupReveal = (container) => {
     <div class="text-center">
       <div class="flex items-center">
         <img
-          src="https://storage.googleapis.com/vue-course-api.appspot.com/letcla-fashion/1678687959071.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=WfFNvPsGWnViJwPIrMFPNhwwdPdDhqXZ5aKcGJxrQTOrBPPQnwPIupZJtwbsTDIMV4ZaeqJt8hyc1YJyVQgj8IJN94OQsocm%2FgniAn8bEMwZHWx%2Bbw41OGObGGcyl66wLs8vBTYjyth9fE1UitU0mFwyzJFdxvdvqCzBJ4yfEkGdV%2FlyqT5cCdZyu9RzPKaJ4pnB2y37SC%2BydoR2l%2Bmt5Pk%2BvgsDMCACEXzlBOpQ4uWGfz7PIwb0XpHzrh8DbZ1VR%2BkaPfX8Fk%2FgVSSTPkH7XfbVsOQ2e9GH9FUEfx7vvmdGf%2Bqt5mqbfh%2BlZz6%2BjOfo%2FtAknWcxi0mrMjVW34wdQQ%3D%3D"
+          src="https://storage.googleapis.com/vue-course-api.appspot.com/letcla-fashion/1678687959071.jpg"
           alt=""
           class="w-full lg:w-1/2 object-cover lg:aspect-ratio-1-1 grayscale hover:grayscale-0"
         />
@@ -67,7 +67,7 @@ const setupReveal = (container) => {
               class="flex flex-col justify-center items-center reveal overflow-hidden relative max-w-md mx-auto"
             >
               <img
-                src="https://storage.googleapis.com/vue-course-api.appspot.com/letcla-fashion/1678688077911.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=GRhnmp%2FQ0ZR5OKHzmjZctnJGpwOKHP0P4INoX%2FZfHUo8DVoJACPOf5OV3i575WQMIHer1UJ4d0tqdIQ0P9loUZkZQmTv%2B7rU7mRYDHSvGoO%2FaZyMPhxyc9LaaSFAricE5CDH3RT%2BZAmrdqPd25Hh8EB5z6TMPPRDscdYLmeXeWUHrID6MhFn7lCvDmaWAxP40%2FtLA4hdqd%2BvVcB2MS7L3b7SflJRFgYPCOylk2POJkD3XGnkxgU8IpI9vFX1nMiZ6uhpMaEaVZSV5U7OrLM75H17ivMdDTdcLJxIJlsNEOQuzcqs53ZjKtRb%2FefBaTixW1Sd%2Fts8YvpzbRstrBnVzA%3D%3D"
+                src="https://storage.googleapis.com/vue-course-api.appspot.com/letcla-fashion/1678688077911.jpg"
                 alt="藍洛琳·塔詩·娜潔"
                 class="object-cover aspect-ratio-1-1 origin-left"
               />
